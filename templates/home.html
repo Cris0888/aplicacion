@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/menu_amburguesa.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/grafica.css') }}">
+    <script src="{{ url_for('static', filename='js/home.js') }}"></script>
+    
+    
+    <title>menu principal</title>
+</head>
+<main>
+{% include '/cabecera.html' %}
+<div id="total-vendido" style="font-size: 24px; color: green;"></div>
+
+<iframe src="/dash/"  id="grafica_de_producto_mas_vendido"></iframe>
+
+<iframe src="/dash/semana/"  id="grafica_de_producto_mas_vendido_semana"></iframe>
+
+<iframe src="/dash/mes/"  id="grafica_de_producto_mas_vendido_mes"></iframe>
+
+
+{% include '/pie.html' %}
+</main>
+</html>

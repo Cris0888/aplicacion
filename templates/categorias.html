@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/categorias.css') }}">
+    <link rel="shortcut icon" href="#">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/menu_amburguesa.css') }}">
+    <script src="{{ url_for('static', filename='js/categorias.js') }}"></script>
+    <title>categorias</title>
+</head>
+<main>
+{% include '/cabecera.html' %}
+
+<div class="contenedor_categorias">
+    <form id="formulario_buscar_categorias" class="buscar_categorias">
+        <input type="search" id="nombre_categorias" required placeholder="Nombre de la categoría">
+        <button type="submit" id="boton_buscar_categorias">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>
+            </svg>
+        </button>
+    </form>
+    <button class="boton_crear">Crear Categorías</button>
+</div>
+
+<div id="listado_categorias">
+    <div class="table-responsive" style="max-height: 400px; overflow-y: auto;">
+        <table class="table">
+            <h2>Listado de Categorías</h2>
+            <thead>
+                <tr>
+                    <th scope="col">Creado por</th>
+                    <th scope="col">Nombre de la categoría</th>
+                    <th scope="col">Editar</th>
+                    {% if session.get("rol") == 'Administrador' %}
+                        <th scope="col">Eliminar</th>
+                    {% endif %}
+                </tr>
+            </thead>
+            <tbody>
+                {% if categorias %}
+                    {% for categoria in categorias %}
+                        <tr>
+                            <td data-label="creador:">{{ categoria[1] }}</td>
+                            <td data-label="Nombre:">{{ categoria[2] }}</td>
+                            <td data-label="Actualizar:">
+                                <button class="abrir_modal_actualizar" data-id="{{ categoria[0] }}"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
+                                    <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+                                    <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5z"/>
+                                </svg>
+                            </button>
+                            </td>
+                            {% if session.get("rol") == 'Administrador' %}
+                            <td data-label="eliminar:">
+                                <button class="abrir_modal_eliminar" data-id="{{ categoria[0] }}">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
+                                        <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0z"/>
+                                        <path d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4zM2.5 3h11V2h-11z"/>
+                                </svg>
+                                </button>
+                            </td>
+                            {% endif %}
+                        </tr>
+                    {% endfor %}
+                {% else %}
+                    <tr>
+                        <td colspan="4">No hay categorías disponibles.</td>
+                    </tr>
+                {% endif %}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<!-- Modal para Crear Categoría -->
+<section class="modal_crear">
+    <div class="modal_contenedor_crear">
+        <div id="boton_cerrar_crear"><a href="#">&times;</a></div>
+        <h3 id="titulo_crear">Crear categoría</h3>
+        <form id="formulario_crear">
+            <label for="nombre" id="label_crear">Nombre:</label>
+            <input type="text" name="nombre" id="input_crear" required>
+            <button type="submit" id="boton_enviar_crear">Enviar</button>
+        </form>
+    </div>
+</section>
+
+<!-- Modal para Confirmación de Creación Correcta -->
+<div class="modal_agregar_correcto">
+    <div class="contenedor_agregar_correcto">
+        <h3 id="mensaje_agregar_correcto"></h3>
+        <figure>
+            <img src="/static/img/correcto.jpg" alt="">
+        </figure>
+        <button class="boton_agregar_correcto">Aceptar</button>
+    </div>
+</div>
+
+<!-- Modal para Error en Creación -->
+<div class="modal_agregar_incorrecto">
+    <div class="contenedor_agregar_incorrecto">
+        <h3 id="mensaje_agregar_incorrecto"></h3>
+        <figure>
+            <img src="/static/img/incorrecto.jpg" alt="">
+        </figure>
+        <button class="boton_agregar_incorrecto">Aceptar</button>
+    </div>
+</div>
+
+<!-- Modal para Eliminar Categoría -->
+<section>
+    <div class="modal_agregar_eliminar">
+        <div class="contenedor_agregar_eliminar">
+            <h3 id="mensaje_agregar_eliminar">¿Seguro que quieres eliminar esta categoría?</h3>
+            <form id="formulario_eliminar">
+                <input type="hidden" id="identificacion_eliminar">
+                
+                <div class="botones_eliminar">
+                    <button type="submit" class="boton_aceptar_eliminar">Aceptar</button>
+                    <button type="button" class="boton_rechazar_eliminar">Cancelar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+
+
+
+
+<!-- Modal para Actualizar Categoría -->
+<section class="modal_actualizar">
+    <div class="modal_contenedor_actualizar">
+        <div class="boton_cerrar_actualizar"><a href="#" >&times;</a></div>
+        <h3 id="titulo_actualizar">Actualizar categoría</h3>
+        <form id="formulario_actualizar">
+            <input type="hidden" name="identificacion" id="identificacion_actualizar">
+            <label for="nombre_actualizar" id="label_actualizar">Nombre:</label>
+            <input type="text" name="nombre_actualizar" id="nombre_actualizar" required>
+            <button type="submit" id="boton_enviar_actualizar">Enviar</button>
+        </form>
+    </div>
+</section>
+
+
+
+
+    
+
+
+{% include '/pie.html' %}
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
+</main>
+</html>

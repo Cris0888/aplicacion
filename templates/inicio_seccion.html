@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>inicio de seccion</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/inicio_seccion.css') }}">
+    <script src="{{ url_for('static', filename='js/inicio_de_seccion.js') }}"></script>
+</head>
+<body>
+<main>
+    <div id="caja_padre">
+        <img src="/static/img/logo.png" alt="">
+        <h2 id="titulo">INICIO DE SESIÓN</h2>
+        <form id="inicio_seccion">
+            <input type="text" id="usuario" placeholder="DIGITE SU CORREO" required>
+            <input type="password" id="contrasena" placeholder="DIGITE SU CONTRASEÑA" required>
+            <p id="mensaje-error" class="datos_incorrectos"></p>
+            <button type="submit">INGRESAR</button>
+        </form>
+    </div>
+</main>
+</body>
+</html>  

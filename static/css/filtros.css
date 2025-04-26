@@ -1,0 +1,546 @@
+/* ----------------------------------------MODAL incorrecto----------------------------------------------------------------- */
+* {
+    box-sizing: border-box;
+}
+
+
+.modal_agregar_incorrecto {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    z-index: 1000;
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo oscuro semi-transparente */
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.6s ease-in-out;
+}
+
+.modal_agregar_incorrecto.mostrar_alerta{
+    display: flex;
+    opacity: 1;
+    pointer-events: all;
+}
+
+figure {
+    width: 100px; /* Ajustado al tamaño de la imagen */
+    height: auto; 
+    margin-bottom: 10px;
+}
+
+figure img {
+    width: 100px;
+    height: 100px;
+}
+
+
+
+.contenedor_agregar_incorrecto{
+    background-color: #fff;
+    width: 270px;
+    height: auto; /* Altura automática para ajustarse al contenido */
+    text-align: center;
+    border-radius: 10px;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+
+
+.boton_agregar_incorrecto {
+    padding: 5px;
+    width: 90px;
+    background-color: #c92d2d;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    margin-top: 3px;
+    cursor: pointer;
+    color: #000;
+}
+
+
+/* ----------------------------------------------modal incorrecto----------------------------------------- */
+.modal_agregar_correcto{
+    display: none;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    z-index: 1000;
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo oscuro semi-transparente */
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.6s ease-in-out;
+}
+
+.modal_agregar_correcto.oculto_correcto {
+        display: flex;
+        opacity: 1;
+        pointer-events: all;
+    }
+
+
+#mensaje_agregar_correcto{
+    font-size: 24px;
+    font-weight: bold;
+}
+
+
+.contenedor_agregar_correcto {
+    background-color: #fff;
+    width: 300px;
+    height: auto; /* Altura automática para ajustarse al contenido */
+    text-align: center;
+    border-radius: 10px;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+figure {
+    width: 100px; /* Ajustado al tamaño de la imagen */
+    height: auto; 
+    margin-bottom: 10px;
+}
+
+figure img {
+    width: 100px;
+    height: 100px;
+}
+
+.boton_agregar_correcto {
+    padding: 5px;
+    width: 90px;
+    background-color: #08C93C;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    margin-top: 3px;
+    cursor: pointer;
+}
+
+
+
+
+
+/* buscar filtros */
+
+
+.filtros-container {
+    display: flex;
+    justify-content: center; /* Centra los elementos */
+    margin-top: 10px;
+}
+
+.filtros-container form {
+    display: flex;
+    align-items: center; /* Asegura que todo tenga la misma altura */
+    gap: 10px; /* Espacio entre los elementos */
+}
+
+.input_filtros_fecha, 
+.input_filtros_metodo, 
+#boton_enviar_fitros {
+    border: none;
+    border-radius: 10px;
+    padding: 0.2em;
+    background-color: #bcbcbca3;
+    font-size: 16px;
+    height: 35px; /* Asegura la misma altura */
+    text-align: center;
+    color: #000000;
+    font-weight: bold;
+}
+
+
+
+#boton_enviar_fitros {
+    background-color:  rgb(226, 43, 195); /* Verde */
+    color: rgb(0, 0, 0);
+    cursor: pointer;
+    padding: 0 15px; /* Espacio alrededor del ícono */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    color: #000;
+}
+
+#boton_enviar_fitros svg {
+    width: 20px;
+    height: 20px;
+    fill: rgb(0, 0, 0); /* Color del ícono */
+}
+
+.boton_ver_mas_productos{
+    border: none;
+    margin: 5px 0;
+    width: 50%;
+    box-sizing: border-box;
+    border-radius: 5px;
+    background-color:  rgb(255, 0, 217);
+    font-size: 18px;
+    color: #000;
+
+}
+
+#total_ventas{
+    border: none;
+    border-radius: 10px;
+    width: 200px;
+    height: auto;
+    background-color:  rgb(255, 0, 217);
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    margin-left: 20px;
+    cursor: pointer;
+    color: #000;
+}
+/* moda ver mas filtros */
+
+.modal_ver_mas_filtros {
+    z-index: 1000; /* Un valor alto para que siempre esté sobre la tabla */
+    display: none;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo oscuro semi-transparente */
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.6s;
+    
+}
+
+.modal_ver_mas_filtros.mostrar_ver_mas_filtros{
+    display: flex;
+    opacity: 1;
+    pointer-events: all;
+}
+
+.contenedor_ver_mas_filtros{
+    z-index: 1100; /* Asegura que el contenido esté visible */
+    position: relative;
+    width: 25%;
+    max-height: 80vh; /* Limita la altura para que el scroll funcione */
+    border-radius: 10px;
+    padding: 3.5em 2.5em;
+    background-color: #ffffff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 6px 20px rgba(0, 0, 0, 0.1); /* Efecto de sombra */
+    overflow-y: auto; /* Habilita el scroll solo en la dirección vertical */
+    overflow-x: hidden; /* Evita el scroll horizontal */
+}
+
+
+#titulo_ver_mas_filtros{
+    position: relative;
+    text-align: center;
+    font-weight: bold;
+}
+
+#label_ver_mas_filtros{
+    position: relative;
+    left: 0px;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+input {
+    border: none;
+    margin: 10px 0;
+    border-radius: 10px;
+    width: 100%;
+    padding: 0.3em;
+    box-sizing: border-box;
+    background-color: #bcbcbca3;
+    text-align: center;
+}
+
+
+#boton_cerrar_ver_mas_filtros{
+    border: none;
+    margin: 10px 0;
+    border-radius: 10px;
+    width: 100%;
+    padding: 0.3em;
+    box-sizing: border-box;
+    background-color:  rgb(255, 0, 217);
+    font-size: 18px;
+    font-weight: bold;
+    color: #000;
+}
+
+.boton_ver_mas_filtros{
+    border: none;
+    margin: 5px 0;
+    width: 50%;
+    box-sizing: border-box;
+    border-radius: 5px;
+    background-color:  rgb(255, 0, 217);
+    font-size: 18px;
+    color: #000;
+}
+
+#tabla_filtros{
+    margin-top: 20px;
+}
+
+#contenedor_bton_eliminar{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+}
+
+
+
+.boton_eliminar_ventas{
+    background-color: #fff;
+    border: none;
+    color: #000;
+}
+
+
+
+
+/* --------------------------------------modal eliminar------------------------------------------------------------- */
+
+
+
+.modal_filtros_eliminar {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    z-index: 1000;
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo oscuro semi-transparente */
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.6s ease-in-out;
+}
+
+.modal_filtros_eliminar.mostrar_filtros_eliminar {
+    display: flex;
+    opacity: 1;
+    pointer-events: all;
+}
+
+.contenedor_filtros_eliminar{
+    background-color: #fff;
+    width: 300px;
+    height: 35%;/* Altura automática para ajustarse al contenido */
+    text-align: center;
+    border-radius: 10px;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+
+
+
+.mensaje_filtros_eliminar{
+    text-align: center;
+}
+
+.botones_eliminar {
+    display: flex;
+    justify-content: center; /* Centra los botones */
+    align-items: center;
+    gap: 15px; /* Espaciado entre botones */
+    width: 100%;
+    margin-top: 15px;
+}
+
+/* Estilos generales de los botones */
+.boton_aceptar,
+.boton_rechazar {
+    padding: 10px;
+    width: 120px; /* Se agrandan un poco para mejor visualización */
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    border-radius: 8px;
+    cursor: pointer;
+    border: none;
+    transition: 0.3s ease-in-out;
+}
+.boton_aceptar {
+    background-color: #08C93C;
+    color: rgb(0, 0, 0);
+}
+
+.boton_aceptar:hover {
+    background-color: #06a82e;
+}
+
+/* Botón Cancelar */
+.boton_rechazar {
+    background-color: #c92d2d;
+    color: rgb(0, 0, 0);
+}
+
+.boton_rechazar:hover {
+    background-color: #a71f1f;
+}
+
+
+
+
+
+/* ------------------------------------------------------------------------------------------------ */
+
+
+@media (max-width: 768px) {
+    .table thead {
+        display: none; /* Oculta el encabezado en pantallas pequeñas */
+    }
+
+    .table tr {
+        display: block; /* Cada fila se convierte en un bloque */
+        margin-bottom: 25px; /* Espacio entre filas */
+        border: 1px solid #ddd;
+        padding: 10px;
+    }
+
+    .table td {
+        display: flex; /* Usa flexbox para alinear datos */
+        justify-content: flex-start; /* Mantiene los datos alineados a la izquierda */
+        align-items: center;
+        text-align: left;
+        padding-left: 10px;
+        position: relative;
+    }
+
+    .table td::before {
+        content: attr(data-label); /* Agrega el título del encabezado */
+        font-weight: bold; /* Negrita para destacar */
+        margin-right: 30px; /* Espacio entre el título y el dato */
+        color: #333; /* Color oscuro para mejor visibilidad */
+    }
+
+    .filtros-container {
+        flex-direction: column;
+        align-items: center;
+    }
+    .input_filtros_fecha, 
+    .input_filtros_metodo, 
+    #boton_enviar_fitros{
+        width: 80%;
+    }
+
+    #total_ventas {
+        width: 50%;
+        margin-top: 10px; /* Espacio debajo del buscador */
+    }
+
+    .contenedor_ver_mas_filtros {
+        width: 90%; /* Ajusta el ancho para pantallas pequeñas */
+        padding: 2em 1.5em; /* Reduce el padding */
+    }
+
+    #label_ver_mas_filtros {
+        font-size: 14px; /* Reduce el tamaño del texto */
+    }
+
+    input {
+        font-size: 14px; /* Ajusta el tamaño de la fuente para inputs */
+        padding: 0.2em;
+    }
+
+    #boton_cerrar_ver_mas_filtros {
+        font-size: 16px; /* Reduce el tamaño del botón */
+        padding: 0.2em;
+    }
+}
+
+
+@media screen and (max-width: 600px) {
+
+    .contenedor_filtros_eliminar {
+        width: 80%; /* Hacerlo más adaptable */
+        padding: 10px;
+        height: auto;
+        justify-content: center;
+    }
+
+    #mensaje_filtros_eliminar {
+        font-size: 26px;
+        font-weight: bold;
+    }
+
+    .botones_eliminar {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+    }
+
+    .boton_aceptar,
+    .boton_rechazar {
+        width: auto; /* Se ajusta al contenido */
+        font-size: 14px;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+
+    .contenedor_ver_mas_filtros{
+        width: 60%;
+    }
+    /* eliminar  modal */
+    .contenedor_filtros_eliminar {
+        width: 35%; /* Hacerlo más adaptable */
+        height: 25%;
+        justify-content: center;
+    }
+
+    .mensaje_filtros_eliminar{
+            font-size: 26px;
+            font-weight: bold;
+        }
+
+    .botones_eliminar {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+    }
+
+    .boton_aceptar,
+    .boton_rechazar {
+        width: auto; /* Se ajusta al contenido */
+        font-size: 14px;
+    }
+}

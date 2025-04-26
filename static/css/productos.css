@@ -1,0 +1,1490 @@
+* {
+    box-sizing: border-box;
+    font-size: 16px;
+}
+
+.modal_productos {
+    display: none; 
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo oscuro semi-transparente */
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.6s;
+}
+.modal_productos.mostrar_modal {
+    display: flex;
+    opacity: 1;
+    pointer-events: all;
+}
+
+.contenedor_productos {
+    position: relative;
+    width: 75%;
+    max-width: 700px;
+    height: 80%;
+    margin: 0 auto;
+    border-radius: 6px;
+    padding: 4.4em 2.5em;
+    background-color: #fff;
+    display: grid;
+    gap: 1em;
+    place-items: center;
+    grid-auto-columns: 100%;
+    transform: var(--transform);
+    transition: var(--transition);
+}
+
+#titulo{
+    text-align: center;
+    position: relative;
+    bottom: 170px;
+}
+
+
+label{
+    position: relative;
+    right: 380px;
+    font-weight: bold;
+    
+}
+#campo1{
+    position: absolute;
+    left: 50px;
+    top: 130px;
+    border: none;
+    margin: 10px 0;
+    border-radius: 6px;
+    width: 30%;
+    padding: 0.2em;
+    box-sizing: border-box;
+    background-color: #bcbcbca3;
+}
+#campo2{
+    position: absolute;
+    left: 50px;
+    top: 200px;
+    border: none;
+    margin: 10px 0;
+    border-radius: 6px;
+    width: 30%;
+    padding: 0.2em;
+    box-sizing: border-box;
+    background-color: #bcbcbca3;
+
+}
+#campo3{
+    position: absolute;
+    left: 50px;
+    top: 270px;
+    border: none;
+    margin: 10px 0;
+    border-radius: 10px;
+    width: 30%;
+    padding: 0.2em;
+    box-sizing: border-box;
+    background-color: #bcbcbca3;
+
+
+}
+
+
+#campo4{
+    position: absolute;
+    right: 50px;
+    top: 130px;
+    border: none;
+    margin: 10px 0;
+    border-radius: 6px;
+    width: 30%;
+    padding: 0.2em;
+    box-sizing: border-box;
+    background-color: #bcbcbca3;
+}
+#campo5{
+    position: absolute;
+    right: 50px;
+    top: 200px;
+    border: none;
+    margin: 10px 0;
+    border-radius: 6px;
+    width: 30%;
+    padding: 0.2em;
+    box-sizing: border-box;
+    background-color: #bcbcbca3;
+
+}
+#campo6{
+    position: absolute;
+    right: 50px;
+    top: 270px;
+    border: none;
+    margin: 10px 0;
+    border-radius: 6px;
+    width: 30%;
+    padding: 0.2em;
+    box-sizing: border-box;
+    background-color: #bcbcbca3;
+
+}
+
+#campo7{
+    position: absolute;
+    right: 50px;
+    top: 340px;
+    border: none;
+    margin: 10px 0;
+    border-radius: 6px;
+    width: 30%;
+    padding: 0.2em;
+    box-sizing: border-box;
+    background-color: #bcbcbca3;
+
+
+}
+
+
+
+#label1{
+    position: absolute;
+    left: 60px;
+    top: 110px;
+
+}
+
+#label2{
+    position: absolute;
+    left: 60px;
+    top: 180px;
+    
+}
+
+#label3{
+    position: absolute;
+    left: 60px;
+    top: 255px;
+    
+}
+
+#label4{
+    position: absolute;
+    right: 95px;
+    top: 110px;
+    
+}
+
+#label5{
+    position: absolute;
+    right: 111px;
+    top: 185px;
+}
+
+
+#label6{
+    position: absolute;
+    right: 160px;
+    top: 255px;
+}
+
+#label7{
+    position: absolute;
+    right: 100px;
+    top: 320px;
+}
+
+.boton_productos {
+    position: relative;
+    top: 4em;
+    display: block;
+    margin: 1em auto 0;
+    height: 40px;
+    width: 125px;
+    border-radius: 20px;
+    background-color: rgb(255, 0, 217);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0), 0 6px 20px rgba(0, 0, 0, 0);
+    font-weight: bold;
+    font-size: 17px;
+    border: none;
+    text-align: center;
+} 
+
+
+.boton_cerrar_agregar{
+    position: relative;
+    left: 320px;
+    bottom:  80px;
+    font-size: 20px;
+    font-weight: bold;
+    color: #333;
+    background: none;
+    border: none;
+    cursor: pointer;
+
+}
+.boton_atras{
+    width: 5%;
+}
+
+.bton{
+    background-color: #fff;
+    border: none;
+    color: black;
+} 
+
+
+
+/*------------------- ver mas ---------------------------------------------------------------------- */
+.boton_ver_mas_productos{
+    border: none;
+    margin: 5px 0;
+    width: 50%;
+    box-sizing: border-box;
+    border-radius: 5px;
+    background-color:  rgb(255, 0, 217);
+    font-size: 18px;
+    color: #000;
+
+}
+
+
+.modal_ver_mas_inventario {
+    z-index: 1000; /* Un valor alto para que siempre esté sobre la tabla */
+    display: none;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo oscuro semi-transparente */
+    opacity: 0;
+    pointer-events: all;
+    transition: opacity 0.6s;
+    
+}
+
+.modal_ver_mas_inventario.mostrar_ver_mas_inventario{
+    display: flex;
+    opacity: 1;
+    pointer-events: all;
+}
+
+.contenedor_ver_mas_inventario {
+    z-index: 1100; /* Asegura que el contenido esté visible */
+    position: relative;
+    width: 25%;
+    max-height: 80vh; /* Limita la altura para que el scroll funcione */
+    border-radius: 10px;
+    padding: 3.5em 2.5em;
+    background-color: #ffffff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 6px 20px rgba(0, 0, 0, 0.1); /* Efecto de sombra */
+    overflow-y: auto; /* Habilita el scroll solo en la dirección vertical */
+    overflow-x: hidden; /* Evita el scroll horizontal */
+}
+
+
+#titulo_ver_mas_inventario{
+    position: relative;
+    text-align: center;
+    font-weight: bold;
+}
+
+#label_ver_mas_inventario {
+    position: relative;
+    left: 0px;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+input,textarea {
+    border: none;
+    margin: 10px 0;
+    border-radius: 10px;
+    width: 100%;
+    padding: 0.3em;
+    box-sizing: border-box;
+    background-color: #bcbcbca3;
+    text-align: center;
+}
+
+
+#boton_cerrar_inventario_ver_mas{
+    border: none;
+    margin: 10px 0;
+    border-radius: 10px;
+    width: 100%;
+    padding: 0.3em;
+    box-sizing: border-box;
+    background-color:  rgb(255, 0, 217);
+    font-size: 18px;
+    font-weight: bold;
+    color: #000;
+}
+
+#botones_ver_mas{
+    display: flex;
+    justify-content: center; /* Centra los botones */
+    align-items: center;
+    gap: 70px; /* Espaciado entre botones */
+    width: 100%;
+    margin-top: 15px;
+
+}
+
+
+.bton{
+background-color: #fff;
+border: none;   
+color: #000;
+}
+/* ------------------------------------------------------------------------------------------------ */
+
+
+
+
+
+
+
+
+
+
+
+
+/* -----------------------------------------alerta correta------------------------------------------------------ */
+.modal_agregar_correcto{
+    display: none;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    z-index: 1000;
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo oscuro semi-transparente */
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.6s ease-in-out;
+}
+
+.modal_agregar_correcto.oculto_correcto {
+        display: flex;
+        opacity: 1;
+        pointer-events: all;
+    }
+
+
+#mensaje_agregar_correcto{
+    font-size: 24px;
+    font-weight: bold;
+}
+
+
+.contenedor_agregar_correcto {
+    background-color: #fff;
+    width: 300px;
+    height: auto; /* Altura automática para ajustarse al contenido */
+    text-align: center;
+    border-radius: 10px;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+figure {
+    width: 100px; /* Ajustado al tamaño de la imagen */
+    height: auto; 
+    margin-bottom: 10px;
+}
+
+figure img {
+    width: 100px;
+    height: 100px;
+}
+
+.boton_agregar_correcto {
+    padding: 5px;
+    width: 90px;
+    background-color: #08C93C;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    margin-top: 3px;
+    cursor: pointer;
+    color: #000;
+}
+
+
+/*--------------------------------- MODAL INCORRECTO---------------------------------------------------- */
+
+
+
+
+
+.modal_agregar_incorrecto{
+    display: none;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    z-index: 1000;
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo oscuro semi-transparente */
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.6s ease-in-out;
+}
+
+.modal_agregar_incorrecto.oculto_incorrecto {
+        display: flex;
+        opacity: 1;
+        pointer-events: all;
+    }
+
+#mensaje_agregar_incorrecto{
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.contenedor_agregar_incorrecto {
+    background-color: #fff;
+    width: 300px;
+    height: auto; /* Altura automática para ajustarse al contenido */
+    text-align: center;
+    border-radius: 10px;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+figure {
+    width: 100px; /* Ajustado al tamaño de la imagen */
+    height: auto; 
+    margin-bottom: 10px;
+}
+
+figure img {
+    width: 100px;
+    height: 100px;
+}
+
+.boton_agregar_incorrecto {
+    padding: 5px;
+    width: 90px;
+    background-color: #c92d2d;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    margin-top: 3px;
+    cursor: pointer;
+    color: #000;
+}
+
+
+
+
+
+/* --------------------------------------modal eliminar------------------------------------------------------------- */
+
+
+
+.modal_actualizar_eliminar {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    z-index: 1000;
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo oscuro semi-transparente */
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.6s ease-in-out;
+}
+
+.modal_actualizar_eliminar.mostrar_actualizar_eliminar {
+    display: flex;
+    opacity: 1;
+    pointer-events: all;
+}
+
+.contenedor_actualizar_eliminar{
+    background-color: #fff;
+    width: 300px;
+    height: 35%;/* Altura automática para ajustarse al contenido */
+    text-align: center;
+    border-radius: 10px;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+
+
+
+.mensaje_actualizar_eliminar{
+    text-align: center;
+}
+
+.botones_eliminar {
+    display: flex;
+    justify-content: center; /* Centra los botones */
+    align-items: center;
+    gap: 15px; /* Espaciado entre botones */
+    width: 100%;
+    margin-top: 15px;
+}
+
+/* Estilos generales de los botones */
+.boton_aceptar,
+.boton_rechazar {
+    padding: 10px;
+    width: 120px; /* Se agrandan un poco para mejor visualización */
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    border-radius: 8px;
+    cursor: pointer;
+    border: none;
+    transition: 0.3s ease-in-out;
+}
+.boton_aceptar {
+    background-color: #08C93C;
+    color: rgb(0, 0, 0);
+}
+
+.boton_aceptar:hover {
+    background-color: #06a82e;
+}
+
+/* Botón Cancelar */
+.boton_rechazar {
+    background-color: #c92d2d;
+    color: rgb(0, 0, 0);
+}
+
+.boton_rechazar:hover {
+    background-color: #a71f1f;
+}
+
+
+.boton_eliminar_productos{
+    background-color: #fff;
+    color: black;
+    border: none;
+
+}
+
+
+
+
+/* ------------------------------------------modal actualizar------------------------------------------------------------------------ */
+
+.modal_actualizar_productos{
+    display: none; 
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo oscuro semi-transparente */
+    opacity: 0;
+    pointer-events: all;
+    transition: opacity 0.6s;
+}
+.modal_actualizar_productos.mostrar_actualizar_productos {
+    display: flex;
+    opacity: 1;
+    pointer-events: all;
+}
+
+
+
+.contenedor_actualizar_productos{
+    position: relative;
+    width: 75%;
+    max-width: 700px;
+    height: 70%;
+    margin: 0 auto;
+    border-radius: 6px;
+    padding: 4.5em 2.5em;
+    background-color: #fff;
+    display: grid;
+    gap: 1em;
+    place-items: center;
+    grid-auto-columns: 100%;
+    transform: var(--transform);
+    transition: var(--transition);
+}
+
+
+.boton_cerrar_actualizar{
+    position: relative;
+    left: 310px;
+    bottom:  80px;
+    font-size: 20px;
+    font-weight: bold;
+    color: #333;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+#titulo_actualizar{
+    text-align: center;
+    position: relative;
+    bottom: 6.5em;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1em; /* Espaciado uniforme entre elementos */
+    width: 100%;
+}
+
+
+#campo_1{
+    position: absolute;
+    left: 50px;
+    top: 130px;
+    border: none;
+    margin: 10px 0;
+    border-radius: 6px;
+    width: 30%;
+    padding: 0.2em;
+    box-sizing: border-box;
+    background-color: #bcbcbca3;
+}
+#campo_2{
+    position: absolute;
+    left: 50px;
+    top: 200px;
+    border: none;
+    margin: 10px 0;
+    border-radius: 6px;
+    width: 30%;
+    padding: 0.2em;
+    box-sizing: border-box;
+    background-color: #bcbcbca3;
+
+}
+#campo_3{
+    position: absolute;
+    left: 50px;
+    top: 300px;
+    border: none;
+    margin: 10px 0;
+    border-radius: 10px;
+    width: 30%;
+    padding: 0.2em;
+    box-sizing: border-box;
+    background-color: #bcbcbca3;
+
+
+}
+
+
+#campo_4{
+    position: absolute;
+    right: 50px;
+    top: 130px;
+    border: none;
+    margin: 10px 0;
+    border-radius: 6px;
+    width: 30%;
+    padding: 0.2em;
+    box-sizing: border-box;
+    background-color: #bcbcbca3;
+}
+#campo_5{
+    position: absolute;
+    right: 50px;
+    top: 215px;
+    border: none;
+    margin: 10px 0;
+    border-radius: 6px;
+    width: 30%;
+    padding: 0.2em;
+    box-sizing: border-box;
+    background-color: #bcbcbca3;
+
+}
+#campo_6{
+    position: absolute;
+    right: 50px;
+    top: 300px;
+    border: none;
+    margin: 10px 0;
+    border-radius: 6px;
+    width: 30%;
+    padding: 0.2em;
+    box-sizing: border-box;
+    background-color: #bcbcbca3;
+
+}
+
+
+
+
+#label_1{
+    position: absolute;
+    left: 60px;
+    top: 110px;
+
+}
+
+#label_2{
+    position: absolute;
+    left: 60px;
+    top: 180px;
+    
+}
+
+#label_3{
+    position: absolute;
+    left: 60px;
+    top: 280px;
+    
+}
+
+#label_4{
+    position: absolute;
+    right: 110px;
+    top: 110px;
+    
+}
+
+#label_5{
+    position: absolute;
+    right: 125px;
+    top: 195px;
+}
+
+#label_6{
+    position: absolute;
+    right: 170px;
+    top: 280px;
+}
+
+
+.boton_enviar_actualizar {
+    position: relative; /* Se ajusta dentro del contenedor */
+    top: 4em; /* Espaciado superior */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40px;
+    width: 125px;
+    border-radius: 20px;
+    background-color: rgb(255, 0, 217);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    font-weight: bold;
+    font-size: 17px;
+    border: none;
+    cursor: pointer;
+}
+
+.boton_actualizar_productos{
+    background-color: #fff;
+    color: black;
+    border: none;
+
+}
+
+/* -------------------------buscar producto------------------------------------------------------ */
+.contenedor__buscar_productos {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    padding: 10px;
+}
+
+/* ---------------------- GRUPO DE BÚSQUEDA ---------------------- */
+.grupo_busqueda {
+    display: flex;
+    align-items: center;
+    background-color: #bcbcbca3;
+    border-radius: 10px;
+    padding: 5px;
+    width: 230px; /* Ajusta el ancho del input */
+    position: relative;
+}
+
+/* ---------------------- INPUT DE BÚSQUEDA ---------------------- */
+#nombre_producto {
+    border: none;
+    background: transparent;
+    font-weight: bold;
+    padding: 10px 10; /* Espaciado para el icono */
+    width: 100%;
+    border-radius: 10px;
+    outline: none;
+}
+
+/* ---------------------- ICONO DENTRO DEL INPUT ---------------------- */
+.search-icon {
+    position: absolute;
+    left: 10px;
+    color: #000;
+    font-size: 22px;
+}
+
+/* ---------------------- BOTÓN CREAR PRODUCTO ---------------------- */
+.boton_agregar_productos {
+    padding: 10px 15px;
+    background-color: rgb(226, 43, 195);
+    border-radius: 10px;
+    color: rgb(0, 0, 0);
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+.boton_agregar_productos:hover {
+    background-color: #b7008c;
+}
+
+
+@media (max-width: 768px) {
+    .table thead {
+        display: none; /* Oculta el encabezado en pantallas pequeñas */
+    }
+
+    .table tr {
+        display: block; /* Cada fila se convierte en un bloque */
+        margin-bottom: 25px; /* Espacio entre filas */
+        border: 1px solid #ddd;
+        padding: 10px;
+    }
+
+    .table td {
+        display: flex; /* Usa flexbox para alinear datos */
+        justify-content: flex-start; /* Mantiene los datos alineados a la izquierda */
+        align-items: center;
+        text-align: left;
+        padding-left: 10px;
+        position: relative;
+    }
+
+    .table td::before {
+        content: attr(data-label); /* Agrega el título del encabezado */
+        font-weight: bold; /* Negrita para destacar */
+        margin-right: 30px; /* Espacio entre el título y el dato */
+        color: #333; /* Color oscuro para mejor visibilidad */
+    }
+
+    /* 📌 Modal "Ver Más" Responsive */
+    .modal_ver_mas_inventario {
+        align-items: flex-start; /* Evita que el modal quede fuera de pantalla */
+        padding-top: 20px; /* Espaciado superior */
+    }
+
+    .contenedor_ver_mas_inventario {
+        width: 90%; /* Reduce el ancho para adaptarse mejor a móviles */
+        max-width: 400px;
+        padding: 2em 1.5em;
+        border-radius: 10px;
+        margin-top: 80px;
+    }
+
+    #botones_ver_mas {
+        flex-direction: column; /* Cambia a diseño vertical en móviles */
+        gap: 10px; /* Reduce el espacio entre botones */
+    }
+
+    /* 📌 Modal Actualizar/Eliminar Responsive */
+    .contenedor_actualizar_eliminar {
+        max-width: 280px;
+        padding: 1.5em;
+        text-align: center;
+    }
+
+    /* 📌 Botón "Cerrar" Ajustado */
+    #boton_cerrar_crear {
+        position: absolute;
+        left: 180px;
+    }
+}
+
+/* ---------------------- RESPONSIVE ---------------------- */
+@media screen and (max-width: 600px) {
+
+    .contenedor__buscar_productos {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .grupo_busqueda {
+        width: 100%;
+        max-width: 250px;
+    }
+
+    .boton_agregar_productos {
+        width: 100%;
+        max-width: 150px;
+        text-align: center;
+    }
+
+    /* 📌 Modal "Ver Más" aún más compacto */
+    .contenedor_ver_mas_inventario {
+        width: 95%;
+        max-width: 350px;
+        padding: 1.5em;
+    }
+
+    input {
+        font-size: 14px; /* Reduce el tamaño del texto para mejorar la visualización */
+    }
+
+    #botones_ver_mas {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    #boton_cerrar_inventario_ver_mas {
+        font-size: 16px;
+        padding: 0.4em;
+    }
+
+    /* 📌 Modal "Actualizar Productos" Responsive y Centrado */
+    .modal_actualizar_productos {
+        align-items: center;
+        justify-content: center;
+        padding: 0;
+    }
+
+    .contenedor_actualizar_productos {
+        width: 90%;
+        max-width: 350px; /* Ajuste para móviles */
+        padding: 2em;
+        overflow-y: auto; /* Permite desplazarse en caso de contenido largo */
+        border-radius: 10px;
+        height: auto;
+        margin-top: 80px;
+    }
+
+    .boton_cerrar_actualizar {
+        position: absolute;
+        right: 10px;
+        top: 10px;
+    }
+
+    #titulo_actualizar {
+        text-align: center;
+        font-size: 24px;
+        position: relative;
+        bottom: 0;
+        font-weight: bold;
+    }
+
+    form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1em;
+        width: 100%;
+    }
+
+    /* 📌 Ajuste de campos en móviles */
+    .input_formulario_actualizar {
+        width: 100%;
+        padding: 8px;
+        font-size: 14px;
+    }
+
+    #campo_1, #campo_2, #campo_3, #campo_4, #campo_5, #campo_6 {
+        position: relative;
+        width: 100%;
+        left: 0;
+        right: 0;
+        top: 0;
+        margin-bottom: -30px;
+    }
+
+    /* 📌 Ajuste de etiquetas */
+    #label_1{
+        position: relative;
+        top: 20px;
+        left: -95px;
+    }
+    
+    #label_2{
+        position: relative;
+        top: 22px;
+        left: -83px;
+    }
+    #label_3{
+        position: relative;
+        top: 20px;
+        left: -47px;
+    }
+
+    
+    #label_4{
+        position: relative;
+        top: 20px;
+        left: -60px;
+
+    }
+    #label_5{
+        position: relative;
+        top: 20px;
+        left: -69px;
+
+    }
+    #label_6 {
+        position: relative;
+        top: 20px;
+        left: -95px;
+    }
+
+    .boton_enviar_actualizar {
+        width: 100%;
+        max-width: 170px;
+        font-size: 15px;
+        margin-bottom: 50px
+    }
+
+
+    .contenedor__buscar_productos {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .grupo_busqueda {
+        width: 100%;
+        max-width: 250px;
+    }
+
+    .boton_agregar_productos {
+        width: 100%;
+        max-width: 150px;
+        text-align: center;
+    }
+
+    /* 📌 Modal "Ver Más" aún más compacto */
+    .contenedor_ver_mas_inventario {
+        width: 95%;
+        max-width: 350px;
+        padding: 1.5em;
+    }
+
+    input {
+        font-size: 14px; /* Reduce el tamaño del texto para mejorar la visualización */
+    }
+
+    #botones_ver_mas {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    #boton_cerrar_inventario_ver_mas {
+        font-size: 16px;
+        padding: 0.4em;
+    }
+
+    .modal_productos {
+        align-items: center;
+        justify-content: center;
+        padding: 0;
+    }
+
+    .contenedor_productos {
+        width: 90%;
+        max-width: 350px; /* Ajuste para móviles */
+        padding: 2em;
+        overflow-y: auto; /* Permite desplazarse en caso de contenido largo */
+        border-radius: 10px;
+        height: auto;
+        margin-top: 80px;
+    }
+
+    .boton_cerrar_agregar {
+        position: absolute;
+        right: 10px;
+        top: 5px;
+    }
+
+    #titulo {
+        text-align: center;
+        font-size: 24px;
+        position: relative;
+        bottom: 0;
+        font-weight: bold;
+    }
+
+    form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1em;
+        width: 100%;
+    }
+
+    /* 📌 Ajuste de campos en móviles */
+    .input_formlario {
+        width: 100%;
+        padding: 8px;
+        font-size: 14px;
+    }
+
+    #campo1, #campo2, #campo3, #campo4, #campo5, #campo6, #campo7 {
+        position: relative;
+        width: 100%;
+        left: 0;
+        right: 0;
+        top: 0;
+        margin-bottom: -35px;
+    }
+
+    /* 📌 Ajuste de etiquetas */
+    #label1 {
+        position: relative;
+        top: 20px;
+        left: -95px;
+    }
+
+    #label2 {
+        position: relative;
+        top: 20px;
+        left: -90px;
+    }
+
+    #label3 {
+        position: relative;
+        top: 32px;
+        left: -85px;
+    }
+
+    #label4 {
+        position: relative;
+        top: 20px;
+        left: -65px;
+    }
+
+    #label5 {
+        position: relative;
+        top: 20px;
+        left: -70px;
+    }
+
+    #label6 {
+        position: relative;
+        top: 20px;
+        left: -95px;
+    }
+
+    #label7 {
+        position: relative;
+        top: 20px;
+        left: -60px;
+    }
+
+    .boton_productos {
+        width: 100%;
+        max-width: 170px;
+        font-size: 15px;
+        margin-bottom: 50px;
+    }
+
+    /* modal eliminar  */
+
+    .contenedor_actualizar_eliminar {
+        width: 80%; /* Hacerlo más adaptable */
+        padding: 10px;
+        height: auto;
+        justify-content: center;
+    }
+
+    #mensaje_actualizar_eliminar {
+        font-size: 26px;
+        font-weight: bold;
+    }
+
+    .botones_eliminar {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+    }
+
+    .boton_aceptar,
+    .boton_rechazar {
+        width: auto; /* Se ajusta al contenido */
+        font-size: 14px;
+    }
+}
+@media (min-width: 768px) and (max-width: 1024px) {
+
+    .contenedor_ver_mas_inventario{
+        width: 60%;
+    }
+
+    .contenedor_actualizar_eliminar {
+        width: 35%; /* Hacerlo más adaptable */
+        height: 25%;
+        justify-content: center;
+    }
+
+    .mensaje_actualizar_eliminar{
+        font-size: 26px;
+        font-weight: bold;
+    }
+
+    .botones_eliminar {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+    }
+
+    .boton_aceptar,
+    .boton_rechazar {
+        width: auto; /* Se ajusta al contenido */
+        font-size: 14px;
+    }
+
+    .modal_actualizar_productos {
+        align-items: center;
+        justify-content: center;
+        padding: 0;
+    }
+
+    .contenedor_actualizar_productos {
+        width: 90%;
+        max-width: 350px; /* Ajuste para móviles */
+        padding: 2em;
+        overflow-y: auto; /* Permite desplazarse en caso de contenido largo */
+        border-radius: 10px;
+        height: auto;
+        margin-top: 80px;
+    }
+
+    .boton_cerrar_actualizar {
+        position: absolute;
+        right: 10px;
+        top: 10px;
+    }
+
+    #titulo_actualizar {
+        text-align: center;
+        font-size: 24px;
+        position: relative;
+        bottom: 0;
+        font-weight: bold;
+    }
+
+    form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1em;
+        width: 100%;
+    }
+
+    /* 📌 Ajuste de campos en móviles */
+    .input_formulario_actualizar {
+        width: 100%;
+        padding: 8px;
+        font-size: 14px;
+    }
+
+    #campo_1, #campo_2, #campo_3, #campo_4, #campo_5, #campo_6 {
+        position: relative;
+        width: 100%;
+        left: 0;
+        right: 0;
+        top: 0;
+        margin-bottom: -30px;
+    }
+
+    /* 📌 Ajuste de etiquetas */
+    #label_1{
+        position: relative;
+        top: 20px;
+        left: -95px;
+    }
+    
+    #label_2{
+        position: relative;
+        top: 22px;
+        left: -83px;
+    }
+    #label_3{
+        position: relative;
+        top: 20px;
+        left: -47px;
+    }
+
+    
+    #label_4{
+        position: relative;
+        top: 20px;
+        left: -60px;
+
+    }
+    #label_5{
+        position: relative;
+        top: 20px;
+        left: -69px;
+
+    }
+    #label_6 {
+        position: relative;
+        top: 20px;
+        left: -95px;
+    }
+
+    .boton_enviar_actualizar {
+        width: 100%;
+        max-width: 170px;
+        font-size: 15px;
+        margin-bottom: 50px
+    }
+
+    
+    
+    .contenedor_productos {
+        width: 90%;
+        max-width: 350px; /* Ajuste para móviles */
+        padding: 2em;
+        overflow-y: auto; /* Permite desplazarse en caso de contenido largo */
+        border-radius: 10px;
+        height: auto;
+        margin-top: 80px;
+    }
+
+    .boton_cerrar_agregar {
+        position: absolute;
+        right: 10px;
+        top: 5px;
+    }
+
+    #titulo {
+        text-align: center;
+        font-size: 24px;
+        position: relative;
+        bottom: 0;
+        font-weight: bold;
+    }
+
+    form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1em;
+        width: 100%;
+    }
+
+    /* 📌 Ajuste de campos en móviles */
+    .input_formlario {
+        width: 100%;
+        padding: 8px;
+        font-size: 14px;
+    }
+
+    #campo1, #campo2, #campo3, #campo4, #campo5, #campo6, #campo7 {
+        position: relative;
+        width: 100%;
+        left: 0;
+        right: 0;
+        top: 0;
+        margin-bottom: -35px;
+    }
+
+    /* 📌 Ajuste de etiquetas */
+    #label1 {
+        position: relative;
+        top: 20px;
+        left: -95px;
+    }
+
+    #label2 {
+        position: relative;
+        top: 20px;
+        left: -90px;
+    }
+
+    #label3 {
+        position: relative;
+        top: 32px;
+        left: -85px;
+    }
+
+    #label4 {
+        position: relative;
+        top: 20px;
+        left: -65px;
+    }
+
+    #label5 {
+        position: relative;
+        top: 20px;
+        left: -70px;
+    }
+
+    #label6 {
+        position: relative;
+        top: 20px;
+        left: -95px;
+    }
+
+    #label7 {
+        position: relative;
+        top: 20px;
+        left: -60px;
+    }
+
+    .boton_productos {
+        width: 100%;
+        max-width: 170px;
+        font-size: 15px;
+        margin-bottom: 50px;
+    }
+
+
+    
+
+
+}
+    
+    
+    /* estilos aquí */
+
+
+

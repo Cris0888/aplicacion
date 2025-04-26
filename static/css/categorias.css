@@ -1,0 +1,735 @@
+/* ----------------------------------------MODAL CREAR----------------------------------------------------------------- */
+* {
+    box-sizing: border-box;
+}
+
+
+a {
+    color: black;
+    font-size: 20px;
+}
+
+/* 🔹 Fondo del modal */
+.modal_crear {
+    display: none; /* Oculto por defecto */
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo oscuro semi-transparente */
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease-in-out;
+}
+
+/* 🔹 Mostrar el modal cuando se activa */
+.modal_crear.mostrar_modal_crear {
+    display: flex;
+    opacity: 1;
+    pointer-events: all;
+}
+
+/* 🔹 Contenedor del modal */
+
+/* 🔹 Título del modal */
+#titulo_crear {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+/* 🔹 Etiqueta del input */
+#label_crear {
+    font-size: 16px;
+    font-weight: bold;
+    margin-right: 115px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+/* 🔹 Input con tamaño adecuado */
+.modal_contenedor_crear{
+    width: 90%;
+    max-width: 280px;
+    background-color: #ffffff;
+    border-radius:10px;
+    padding: 25px;
+    text-align: center;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* 🔹 Botón de enviar */
+#boton_enviar_crear {
+    margin-top: 15px;
+    height: 40px;
+    width: 110px;
+    border-radius: 20px;
+    background-color: rgb(255, 0, 217);
+    color: rgb(0, 0, 0);
+    font-weight: bold;
+    font-size: 18px;
+    border: none;
+    cursor: pointer;
+}
+
+#boton_enviar_crear:hover {
+    background-color: rgb(220, 0, 190);
+}
+
+/* 🔹 Botón de cerrar en la esquina superior derecha */
+#boton_cerrar_crear {
+    position: absolute;
+    top: -3px;
+    right: 10px;
+    font-size: 20px;
+    font-weight: bold;
+    color: #333;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+
+
+.abrir_modal_eliminar{
+    background-color: #fff;
+    border: none;
+    cursor: pointer;
+    color: #000;
+}
+
+
+
+
+
+/* ----------------------------------MODAL CATEGORIA EXITOSA--------------------------------------------------- */
+
+
+.modal_agregar_correcto {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    z-index: 1000;
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo oscuro semi-transparente */
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.6s ease-in-out;
+}
+
+.modal_agregar_correcto.mostrar_agregar_correcto {
+    display: flex;
+    opacity: 1;
+    pointer-events: all;
+}
+
+.contenedor_agregar_correcto {
+    background-color: #fff;
+    width: 300px;
+    height: auto; /* Altura automática para ajustarse al contenido */
+    text-align: center;
+    border-radius: 10px;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+figure {
+    width: 100px; /* Ajustado al tamaño de la imagen */
+    height: auto; 
+    margin-bottom: 10px;
+}
+
+figure img {
+    width: 100px;
+    height: 100px;
+}
+
+.boton_agregar_correcto {
+    padding: 5px;
+    width: 90px;
+    background-color: #08C93C;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    margin-top: 3px;
+    cursor: pointer;
+    color: #000;
+}
+
+
+/*--------------------------------- MODAL AGREGA INCORRECTO---------------------------------------------------- */
+
+.modal_agregar_incorrecto {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    z-index: 1000;
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo oscuro semi-transparente */
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.6s ease-in-out;
+}
+
+.modal_agregar_incorrecto.mostrar_agregar_incorrecto {
+    display: flex;
+    opacity: 1;
+    pointer-events: all;
+}
+
+.contenedor_agregar_incorrecto{
+    background-color: #fff;
+    width: 300px;
+    height: auto; /* Altura automática para ajustarse al contenido */
+    text-align: center;
+    border-radius: 10px;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+
+
+.boton_agregar_incorrecto {
+    padding: 5px;
+    width: 90px;
+    background-color: #c92d2d;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    margin-top: 3px;
+    cursor: pointer;
+    color: #000;
+}
+
+
+/* ---------------------------------------------------modal eliminar--------------------------------------------------------------------------------- */
+
+.modal_agregar_eliminar {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    z-index: 1000;
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo oscuro semi-transparente */
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.6s ease-in-out;
+}
+
+.modal_agregar_eliminar.mostrar_agregar_eliminar {
+    display: flex;
+    opacity: 1;
+    pointer-events: all;
+}
+
+.contenedor_agregar_eliminar{
+    background-color: #fff;
+    width: 300px;
+    height: 35%;/* Altura automática para ajustarse al contenido */
+    text-align: center;
+    border-radius: 10px;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+
+
+
+.mensaje_agregar_eliminar{
+    text-align: center;
+}
+
+
+.botones_eliminar {
+    display: flex;
+    justify-content: center; /* Centra los botones */
+    align-items: center;
+    gap: 15px; /* Espaciado entre botones */
+    width: 100%;
+    margin-top: 15px;
+}
+
+/* Estilos generales de los botones */
+.boton_aceptar_eliminar,
+.boton_rechazar_eliminar {
+    padding: 10px;
+    width: 120px; /* Se agrandan un poco para mejor visualización */
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    border-radius: 8px;
+    cursor: pointer;
+    border: none;
+    transition: 0.3s ease-in-out;
+}
+
+/* Botón Aceptar */
+.boton_aceptar_eliminar {
+    background-color: #08C93C;
+    color: rgb(0, 0, 0);
+}
+
+.boton_aceptar_eliminar:hover {
+    background-color: #06a82e;
+}
+
+/* Botón Cancelar */
+.boton_rechazar_eliminar {
+    background-color: #c92d2d;
+    color: rgb(0, 0, 0);
+}
+
+.boton_rechazar_eliminar:hover {
+    background-color: #a71f1f;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/*------------------------------------------- MODAL ACTUALIZAR----------------------------------------------------- */
+
+
+.modal_actualizar {
+
+    display: none; /* Oculto por defecto */
+
+    justify-content: center;
+
+    align-items: center;
+
+    position: fixed;
+
+    top: 0;
+
+    left: 0;
+
+    width: 100%;
+
+    height: 100%;
+
+    margin: 0;
+
+    padding: 0;
+
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo oscuro semi-transparente */
+
+    opacity: 0;
+
+    pointer-events: none;
+
+    transition: opacity 0.6s;
+
+}
+
+
+.modal_actualizar.mostrar_modal_actualizar {
+
+    display: flex; /* Muestra el modal */
+
+    opacity: 1; /* Opacidad completa */
+
+    pointer-events: all; /* Permite la interacción */
+
+}
+
+
+.modal_contenedor_actualizar {
+
+    width: 90%; /* Ancho del modal en porcentaje */
+
+    max-width: 290px; /* Ancho máximo */
+
+    border-radius: 10px;
+
+    padding: 1.5em; /* Espaciado interno */
+
+    background-color: #ffffff;
+
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 6px 20px rgba(0, 0, 0, 0.1); /* Efecto de sombra */
+
+    position: relative; /* Para posicionar el botón de cerrar */
+    height: auto;
+
+}
+
+
+#titulo_actualizar {
+
+    text-align: center;
+
+    font-weight: bold;
+
+    margin-bottom: 20px; /* Espacio debajo del título */
+
+}
+
+
+#label_actualizar {
+
+    font-weight: bold;
+
+    font-size: 16px;
+
+    margin-left: 10px;
+
+    margin-bottom: 5px;
+
+}
+
+
+input {
+
+    border: none;
+
+
+    border-radius: 10px;
+
+    width: 100%;
+
+    padding: 0.3em; /* Aumentado para mejor usabilidad */
+
+    box-sizing: border-box;
+
+    background-color: #bcbcbca3;
+
+}
+
+
+#boton_enviar_actualizar {
+
+    display: block;
+
+    margin: 1em auto 0;
+
+    height: 35px;
+
+    width: 100px;
+
+    border-radius: 22px;
+
+    background-color: rgb(255, 0, 217);
+
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 6px 20px rgba(0, 0, 0, 0.1);
+
+    font-weight: bold;
+
+    font-size: 17px;
+
+    border: none;
+
+    cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+    color: #000;
+
+}
+
+
+.boton_cerrar_actualizar {
+    position: absolute;
+    top: -3px;
+    right: 10px;
+    font-size: 20px;
+    font-weight: bold;
+    color: #333;
+    background: none;
+    border: none;
+    cursor: pointer;
+
+}
+
+
+
+.abrir_modal_actualizar{
+    background-color: #fff;
+    border: none;
+    color: #000;
+}
+/* ----------------------buscar categorias---------------------------------------------------------  */
+
+.contenedor_categorias {
+    display: flex;
+    justify-content: center; /* Centra horizontalmente */
+    align-items: center; /* Alinea los elementos verticalmente */
+    gap: 20px;
+}
+
+.buscar_categorias {
+    display: flex;
+    align-items: center;
+}
+
+#nombre_categorias {
+    padding: 8px;
+    border: none;
+    background-color: #bcbcbca3;
+    font-weight: bold;
+    border-radius: 10px 0px 0px 10px;
+    width: 190px;
+}
+
+#boton_buscar_categorias {
+    white-space: nowrap;
+    padding: 8px 16px;
+    background-color: rgb(226, 43, 195);
+    color: #000;
+    border: none;
+    border-radius: 0px 10px 10px 0px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.boton_crear {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 20px;
+    background-color: rgb(226, 43, 195);
+    border-radius: 10px;
+    color: #000;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+input::placeholder {
+    color: #000000; /* El color que desees para el placeholder */
+    font-size: 15px;
+}
+
+input:focus {
+    outline: none; /* Elimina el borde cuando el input está enfocado */
+}
+
+
+.table-responsive {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.table th, .table td {
+    padding: 8px;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+
+/* ---------------------- RESPONSIVE ---------------------- */
+
+/* 📱 Para móviles (menos de 768px) */
+@media (max-width: 768px) {
+    .table thead {
+        display: none; /* Oculta el encabezado en pantallas pequeñas */
+    }
+
+    .table tr {
+        display: block; /* Cada fila se convierte en un bloque */
+        margin-bottom: 25px; /* Espacio entre filas */
+        border: 1px solid #ddd;
+        padding: 10px;
+    }
+
+    .table td {
+        display: flex; /* Usa flexbox para alinear datos */
+        justify-content: flex-start; /* Mantiene los datos alineados a la izquierda */
+        align-items: center;
+        text-align: left;
+        padding-left: 10px;
+        position: relative;
+    }
+
+    .table td::before {
+        content: attr(data-label); /* Agrega el título del encabezado */
+        font-weight: bold; /* Negrita para destacar */
+        margin-right: 30px; /* Espacio entre el título y el dato */
+        color: #333; /* Color oscuro para mejor visibilidad */
+    }
+    /* modal actualizar */
+    .modal_contenedor_actualizar {
+
+        max-width: 250px;
+
+    }
+
+
+    #boton_enviar_actualizar {
+
+        width: 40%; /* Botón más ancho en pantallas pequeñas */
+
+    }
+    /* boton crear categorias */
+    .modal_contenedor_crear {
+
+        max-width: 260px;
+
+
+    }
+
+    .boton_crear {
+        padding: 10px 20px;
+        font-size: 15px;
+    }
+    #boton_cerrar_crear {
+        position: absolute; /* Cambiado a absolute para que esté en la esquina */
+        left: 210px; /* Alineado a la derecha *//* Alineado a la derecha */
+    }
+
+}
+
+@media (max-width: 480px) {
+
+    #listado_categorias{
+        margin-top: 20px;
+    }
+
+    .boton_crear {
+        width: 100%; /* Que ocupe todo el ancho disponible */
+        max-width: 120px; /* Evita que sea demasiado grande */
+        padding: 8px 10px; /* Ajusta el padding */
+        font-size: 12px; /* Reduce el tamaño del texto */
+    }
+    /* modal eliminar */
+    .contenedor_agregar_eliminar {
+        width: 80%; /* Hacerlo más adaptable */
+        padding: 15px;
+        height: auto;
+    }
+
+    #mensaje_agregar_eliminar {
+        font-size: 26px;
+        font-weight: bold;
+    }
+
+    .botones_eliminar {
+        flex-direction: column; /* Apila los botones */
+        align-items: flex-start; /* Alinea los botones a la izquierda */
+        gap: 10px;
+    }
+
+    .boton_aceptar_eliminar,
+    .boton_rechazar_eliminar {
+        width: auto; /* Se ajusta al contenido */
+        font-size: 14px;
+    }
+
+     /* modal alerta correcta */
+    .contenedor_agregar_correcto {
+        width: 60%; /* Hacerlo más adaptable */
+        padding: 15px;
+    }
+
+    #mensaje_agregar_correcto {
+        font-size: 26px;
+        font-weight: bold;
+    }
+
+    .boton_agregar_correcto {
+        width: 48%;
+        font-size: 14px;
+    }
+
+     /* modal alerta incorrecta */
+
+    .contenedor_agregar_incorrecto {
+        width: 60%; /* Hacerlo más adaptable */
+        padding: 15px;
+    }
+
+    #mensaje_agregar_incorrecto {
+        font-size: 26px;
+        font-weight: bold;
+    }
+
+    .boton_agregar_incorrecto {
+        width: 48%;
+        font-size: 14px;
+    }
+
+
+
+    
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+
+
+    .contenedor_agregar_eliminar{
+            width: 35%; /* Hacerlo más adaptable */
+            height: 25%;
+            justify-content: center;
+        }
+
+    .mensaje_actualizar_eliminar{
+        font-size: 26px;
+        font-weight: bold;
+    }
+
+    .botones_eliminar {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+    }
+
+    .boton_aceptar_eliminar,
+    .boton_rechazar_eliminar {
+        width: auto; /* Se ajusta al contenido */
+        font-size: 14px;
+    }
+
+    
+
+
+    
+
+
+}
+    
+
+
+

@@ -1,0 +1,27 @@
+<body>
+    <nav>
+        <p id="nombre_de_negocio">ALLYSON STORE</p>
+        <div class="barras__manu">
+            <span class="linea1__barra-menu"></span>
+            <span class="linea2__barra-menu"></span>
+            <span class="linea3__barra-menu"></span>
+        </div>
+    </nav>
+    
+    <div id="caja_de_intefaces">
+        <ul>
+            <li><a href="/home">Grafica</a></li>
+            <li><a href="/venta_productos">Venta de productos</a></li>
+            <li><a href="/filtros">Filtros </a></li>
+            <li><a href="/creditos">creditos</a></li>
+            <li><a href="/productos">inventario</a></li>
+            <li><a href="/categorias">Categorias</a></li>
+            {%if session.get("rol") == 'Administrador' %}
+            <li><a href="/Usuarios">Usuarios</a></li>
+            {%endif%}
+            <li><a href="/metodos">metodos de pago</a></li>
+            <li><a href="/logout">cerrar seccion</a></li>
+        </ul>
+    </div>
+    
+</body>

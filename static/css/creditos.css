@@ -1,0 +1,942 @@
+* {
+    box-sizing: border-box;
+}
+
+#fecha{
+    position: relative;
+    left: 200px;
+}
+
+
+
+.boton_abonar {
+    border: none;
+    background-color: #fff;
+    text-align: center; /* Asegura que el texto dentro del botón esté centrado */
+    display: flex; /* Permite alinear contenido interno */
+    justify-content: center; /* Centra el contenido horizontalmente */
+    align-items: center; /* Centra el contenido verticalmente */
+    padding: 10px 20px; /* Ajusta el padding para mejor apariencia */
+}
+
+.card{
+    text-align: center;
+    float: left;
+    margin-left: 20px;
+    margin-top: 20px;
+}
+.card-title{
+    font-weight: bold;
+}
+
+
+.contenedor {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center; /* Centra el grupo */
+    gap: 200px; /* Espacio entre las tarjetas */
+    align-items: center; /* Alinea verticalmente */
+}
+
+.creditos_pedientes, .creditos_pagados {
+    background: lightgray;
+    padding: 20px;
+    border-radius: 10px;
+    width: 250px; /* Ajusta el ancho */
+    text-align: center;
+}
+
+
+
+#boton_creditos_pedientes{
+    display: block;
+    margin: 1em auto 0;
+    height: 30px;
+    width: 120px;
+    border-radius: 15px;
+    background-color: rgb(255, 0, 217);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 6px 20px rgba(0, 0, 0, 0.1);
+    font-weight: bold;
+    font-size: 17px;
+    border: none;
+}
+
+#boton_creditos_pagados{
+    display: block;
+    margin: 1em auto 0;
+    height: 30px;
+    width: 120px;
+    border-radius: 15px;
+    background-color: rgb(255, 0, 217);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 6px 20px rgba(0, 0, 0, 0.1);
+    font-weight: bold;
+    font-size: 17px;
+    border: none;
+
+}
+
+
+/* ver mas creditos pagados  */
+
+.btn-ver-mas{
+    border: none;
+    margin: 5px 0;
+    width: 50%;
+    box-sizing: border-box;
+    border-radius: 5px;
+    background-color:  rgb(255, 0, 217);
+    font-size: 18px;
+    color: #000000;
+    
+}
+
+.modal_ver_mas_creditos_pagados {
+    z-index: 1000; /* Un valor alto para que siempre esté sobre la tabla */
+    display: none;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo oscuro semi-transparente */
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.6s;
+    
+}
+
+.modal_ver_mas_creditos_pagados.mostrar_ver_mas_pagados{
+    display: flex;
+    opacity: 1;
+    pointer-events: all;
+}
+
+.contenedor_ver_mas_creditos_pagados {
+    z-index: 1100; /* Asegura que el contenido esté visible */
+    position: relative;
+    width: 25%;
+    max-height: 80vh; /* Limita la altura para que el scroll funcione */
+    border-radius: 10px;
+    padding: 3.5em 2.5em;
+    background-color: #ffffff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 6px 20px rgba(0, 0, 0, 0.1); /* Efecto de sombra */
+    overflow-y: auto; /* Habilita el scroll solo en la dirección vertical */
+    overflow-x: hidden; /* Evita el scroll horizontal */
+}
+
+
+#titulo_ver_mas_creditos_pagados{
+    position: relative;
+    text-align: center;
+    font-weight: bold;
+}
+
+#label_ver_mas_pagados{
+    position: relative;
+    left: 0px;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+input {
+    border: none;
+    margin: 10px 0;
+    border-radius: 10px;
+    width: 100%;
+    padding: 0.3em;
+    box-sizing: border-box;
+    background-color: #bcbcbca3;
+    text-align: center;
+}
+
+
+#boton_cerrar_pagados_ver_mas{
+    border: none;
+    margin: 10px 0;
+    border-radius: 10px;
+    width: 100%;
+    padding: 0.3em;
+    box-sizing: border-box;
+    background-color:  rgb(255, 0, 217);
+    font-size: 18px;
+    font-weight: bold;
+    color: #000000;
+}
+
+#contenedor_bton_eliminar{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+}
+
+
+
+.boton_eliminar_creditos{
+    background-color: #fff;
+    border: none;
+    color: #000000;
+}
+/* ver mas creditos pendientes  */
+
+.modal_ver_mas_creditos_pendientes{
+    z-index: 1000; /* Un valor alto para que siempre esté sobre la tabla */
+    display: none;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo oscuro semi-transparente */
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.6s;
+    
+}
+
+.modal_ver_mas_creditos_pendientes.mostrar_ver_mas_pendientes{
+    display: flex;
+    opacity: 1;
+    pointer-events: all;
+}
+
+.contenedor_ver_mas_creditos_pendientes {
+    z-index: 1100; /* Asegura que el contenido esté visible */
+    position: relative;
+    width: 25%;
+    max-height: 80vh; /* Limita la altura para que el scroll funcione */
+    border-radius: 10px;
+    padding: 3.5em 2.5em;
+    background-color: #ffffff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 6px 20px rgba(0, 0, 0, 0.1); /* Efecto de sombra */
+    overflow-y: auto; /* Habilita el scroll solo en la dirección vertical */
+    overflow-x: hidden; /* Evita el scroll horizontal */
+}
+
+
+#titulo_ver_mas_creditos_pendientes{
+    position: relative;
+    text-align: center;
+    font-weight: bold;
+}
+
+#label_ver_mas_pendientes{
+    position: relative;
+    left: 0px;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+input {
+    border: none;
+    margin: 10px 0;
+    border-radius: 10px;
+    width: 100%;
+    padding: 0.3em;
+    box-sizing: border-box;
+    background-color: #bcbcbca3;
+    text-align: center;
+}
+
+
+#boton_cerrar_pendientes_ver_mas{
+    border: none;
+    margin: 10px 0;
+    border-radius: 10px;
+    width: 100%;
+    padding: 0.3em;
+    box-sizing: border-box;
+    background-color:  rgb(255, 0, 217);
+    font-size: 18px;
+    font-weight: bold;
+    color: #000000;
+}
+
+#contendor_abonar{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+
+}
+
+.boton_abonar_credito{
+    background-color: #fff;
+    border: none;
+    margin-left: 5px;
+    color: #000000;
+}
+
+
+/* ------------------------------------modal abonar----------------------------------------------------- */
+.modal_abonar{
+    display: none;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo oscuro semi-transparente */
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.6s;
+    z-index: 100;
+}
+
+.modal_abonar.mostrar_modal_abonar{
+    display: flex;
+    opacity: 1;
+    pointer-events: all;
+}
+
+
+
+.contenedor_abonar{
+    width: 290px;
+    height: auto;
+    border-radius: 10px;
+    padding: 1em 2.5em;
+    background-color: #ffffff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 6px 20px rgba(0, 0, 0, 0.1); /* Efecto de sombra */
+}
+
+#titulo_abonar{
+    position: relative;
+    top: 20px;
+    text-align: center;
+    font-weight: bold;
+}
+
+#boton_cerrar_abonos{
+    position: relative;
+    bottom: 50px;
+    left: 200px;
+    cursor: pointer;
+}
+#cerrar_abono{
+    border: none;
+    cursor: pointer;
+    font-size: 20px;
+    font-weight: bold
+}
+
+
+#label_por_pagar{
+    position: relative;
+    left: 20px;
+    bottom: -6px;
+    font-weight: bold;
+    font-size: 16px;
+
+}
+
+#label_por_abonar{
+    position: relative;
+    left: 20px;
+    bottom: 3px;
+    font-weight: bold;
+    font-size: 16px;
+
+}
+
+#id_abono{
+    border: none;
+    margin: 10px 0;
+    border-radius: 10px;
+    width: 100%;
+    padding: 0.3em;
+    box-sizing: border-box;
+    background-color: #bcbcbca3;
+
+}
+
+#por_pagar{
+    border: none;
+    margin: 10px 0;
+    border-radius: 10px;
+    width: 100%;
+    padding: 0.3em;
+    box-sizing: border-box;
+    background-color: #bcbcbca3;
+
+}
+
+
+
+#por_pagar{
+    text-align: center;
+    width: 200px; /* Ajusta el ancho si es necesario */
+    padding: 5px; /* Espaciado interno */
+}
+
+
+#boton_enviar_abonar{
+    display: block;
+    margin: 1.2em auto 0;
+    height: 35px;
+    width: 100px;
+    border-radius: 22px;
+    background-color: rgb(255, 0, 217);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 6px 20px rgba(0, 0, 0, 0.1);
+    font-weight: bold;
+    font-size: 17px;
+    border: none;
+
+}
+
+
+/* ----------------------------------MODAL CATEGORIA EXITOSA--------------------------------------------------- */
+
+
+.modal_agregar_correcto {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    z-index: 1000;
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo oscuro semi-transparente */
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.6s ease-in-out;
+}
+
+.modal_agregar_correcto.mostrar_credito_correcto {
+    display: flex;
+    opacity: 1;
+    pointer-events: all;
+}
+
+.contenedor_agregar_correcto {
+    background-color: #fff;
+    width: 300px;
+    height: auto; /* Altura automática para ajustarse al contenido */
+    text-align: center;
+    border-radius: 10px;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+figure {
+    width: 100px; /* Ajustado al tamaño de la imagen */
+    height: auto; 
+    margin-bottom: 10px;
+}
+
+figure img {
+    width: 100px;
+    height: 100px;
+}
+
+.boton_agregar_correcto {
+    padding: 5px;
+    width: 90px;
+    background-color: #08C93C;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    margin-top: 3px;
+    cursor: pointer;
+}
+
+
+
+
+/* --------------------------------------modal eliminar------------------------------------------------------------- */
+
+
+
+.modal_creditos_eliminar {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    z-index: 1000;
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo oscuro semi-transparente */
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.6s ease-in-out;
+}
+
+.modal_creditos_eliminar.mostrar_credito_eliminar {
+    display: flex;
+    opacity: 1;
+    pointer-events: all;
+}
+
+.contenedor_creditos_eliminar{
+    background-color: #fff;
+    width: 300px;
+    height: 35%;/* Altura automática para ajustarse al contenido */
+    text-align: center;
+    border-radius: 10px;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+
+
+
+.mensaje_creditos_eliminar{
+    text-align: center;
+}
+
+.botones_eliminar {
+    display: flex;
+    justify-content: center; /* Centra los botones */
+    align-items: center;
+    gap: 15px; /* Espaciado entre botones */
+    width: 100%;
+    margin-top: 15px;
+}
+
+/* Estilos generales de los botones */
+.boton_aceptar,
+.boton_rechazar {
+    padding: 10px;
+    width: 120px; /* Se agrandan un poco para mejor visualización */
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    border-radius: 8px;
+    cursor: pointer;
+    border: none;
+    transition: 0.3s ease-in-out;
+}
+.boton_aceptar {
+    background-color: #08C93C;
+    color: rgb(0, 0, 0);
+}
+
+.boton_aceptar:hover {
+    background-color: #06a82e;
+}
+
+/* Botón Cancelar */
+.boton_rechazar {
+    background-color: #c92d2d;
+    color: rgb(0, 0, 0);
+}
+
+.boton_rechazar:hover {
+    background-color: #a71f1f;
+}
+
+
+
+
+/*--------------------------------- MODAL AGREGA INCORRECTO---------------------------------------------------- */
+
+.modal_agregar_incorrecto {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    z-index: 1000;
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo oscuro semi-transparente */
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.6s ease-in-out;
+}
+
+.modal_agregar_incorrecto.mostrar_credito_incorrecto {
+    display: flex;
+    opacity: 1;
+    pointer-events: all;
+}
+
+.contenedor_agregar_incorrecto{
+    background-color: #fff;
+    width: 300px;
+    height: auto; /* Altura automática para ajustarse al contenido */
+    text-align: center;
+    border-radius: 10px;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+
+
+.boton_agregar_incorrecto {
+    padding: 5px;
+    width: 90px;
+    background-color: #c92d2d;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    margin-top: 3px;
+    cursor: pointer;
+}
+
+/* buscar-------------------------------------------------------------------------------------------------------- */
+
+.buscar_productos {
+    height: 50px;
+    width: 350px;
+    display: flex;
+    box-sizing: border-box; /* Incluye el padding y el borde en el tamaño total */
+    margin-bottom: 30px;
+}
+
+#nombre_buscar{
+    font-weight: bold;
+    margin-right: 10px; /* Espacio entre el label y el input */
+}
+
+#formulario_buscar {
+    display: flex;
+    align-items: center; /* Alinea verticalmente los elementos */
+}
+
+#nombre_producto {
+    padding: 8px;
+    border: none;
+    background-color: #bcbcbca3;
+    font-weight: bold;
+    border-radius: 10px 0px 0px 10px;
+}
+
+#boton_buscar_producto {
+    white-space: nowrap;
+    padding: 8px 16px;
+    background-color: rgb(226, 43, 195);
+    color: #000;
+    border: none;
+    border-radius: 0px 10px 10px 0px;
+    cursor: pointer;
+    font-weight: bold;
+    
+    
+}
+
+input::placeholder {
+    color: #000000; /* El color que desees para el placeholder */
+}
+
+input:focus {
+    outline: none; /* Elimina el borde cuando el input está enfocado */
+}
+
+#estados_creditos{
+    padding: 8px;
+    border: none;
+    background-color: #bcbcbca3;
+    border-radius: 10px ;
+    margin-left: 10px;
+    color: #000000;
+    font-weight: bold;
+}
+
+
+/* Estilo de los botones */
+#btn_pagados, #btn_pendientes {
+    padding: 8px 16px;
+    background-color: rgb(226, 43, 195);
+    color: #000;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: bold;
+    margin-left: 10px;
+    margin-bottom: 30px;
+}
+
+/* Responsividad: ajusta el tamaño de los elementos en pantallas pequeñas */
+
+
+/* Estilos generales para pantallas pequeñas */
+/* Pantallas pequeñas (móviles) */
+/* Pantallas pequeñas (móviles) */
+
+
+
+@media screen and (max-width: 600px) {
+
+    .contenedor_filtros_eliminar {
+        width: 80%; /* Hacerlo más adaptable */
+        padding: 10px;
+        height: auto;
+        justify-content: center;
+    }
+
+    #mensaje_creditos_eliminar {
+        font-size: 26px;
+        font-weight: bold;
+    }
+
+    .botones_eliminar {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+    }
+
+    .boton_aceptar,
+    .boton_rechazar {
+        width: auto; /* Se ajusta al contenido */
+        font-size: 14px;
+    }
+}
+
+
+@media (max-width: 480px) {
+    #fecha {
+        left: 0;
+        text-align: center;
+    }
+
+    .contenedor {
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .creditos_pedientes, .creditos_pagados {
+        width: 90%;
+        margin: 0 auto;
+    }
+
+    .contenedor_ver_mas_creditos_pagados,
+    .contenedor_ver_mas_creditos_pendientes,
+    .contenedor_abonar {
+        width: 90%;
+        padding: 2em;
+    }
+
+    .buscar_productos {
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px; /* Añade espacio entre elementos */
+    }
+
+    #nombre_producto{
+        width: 100%;
+        border-radius: 10px 0px 0px 10px;
+    }
+    #boton_buscar_producto{
+        width: 20%;
+        border-radius: 0px 10px 10px 0px;
+    }
+    #estados_creditos {
+        width: 100%;
+        border-radius: 10px;
+    }
+
+
+    #boton_cerrar_pendientes_ver_mas,
+    #boton_cerrar_pagados_ver_mas,
+    #boton_enviar_abonar {
+        width: 100%;
+    }
+
+    .contenedor_botones{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #btn_pagados, #btn_pendientes {
+        width: 100%;
+
+    }
+
+    /* abonar productos */
+    .contenedor_abonar {
+        width: 80%;
+        padding:1em 4.5em;
+    }
+
+    #titulo_abonar{
+        font-size: 24px;
+    }
+
+    #por_abonar,
+    #por_pagar{
+        width: 100%;
+    }
+
+    #boton_enviar_abonar{
+        width: 50%;
+    }
+
+    #boton_cerrar_abonos{
+    margin-left: 20px;
+    font-size: 20px;
+    font-weight: bold;
+    }
+
+
+    
+}
+
+
+/* Pantallas medianas (tablets) */
+@media (min-width: 481px) and (max-width: 768px) {
+    .contenedor {
+        gap: 50px;
+        flex-wrap: wrap;
+    }
+
+    .creditos_pedientes, .creditos_pagados {
+        width: 45%;
+    }
+
+    .contenedor_ver_mas_creditos_pagados,
+    .contenedor_ver_mas_creditos_pendientes,
+    .contenedor_abonar {
+        width: 70%;
+    }
+
+    .buscar_productos {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    #nombre_producto {
+        width: 60%;
+    }
+
+    #boton_buscar_producto {
+        width: 35%;
+    }
+
+    #estados_creditos {
+        width: 100%;
+        margin-top: 10px;
+    }
+
+    #btn_pagados, #btn_pendientes {
+        width: 48%;
+        margin-bottom: 10px;
+    }
+}
+
+/* Pantallas grandes (escritorio) */
+@media (min-width: 769px) and (max-width: 1200px) {
+    .contenedor {
+        gap: 100px;
+    }
+
+    .creditos_pedientes, .creditos_pagados {
+        width: 40%;
+    }
+
+    .contenedor_ver_mas_creditos_pagados,
+    .contenedor_ver_mas_creditos_pendientes,
+    .contenedor_abonar {
+        width: 50%;
+    }
+
+    #boton_enviar_abonar {
+        width: 80%;
+    }
+
+    #btn_pagados, #btn_pendientes {
+        width: 40%;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+
+    .contenedor_ver_mas_creditos_pendientes{
+        width: 60%;
+    }
+    .contenedor_ver_mas_creditos_pagados {
+        width: 60%;
+    }
+
+    
+    .contenedor_abonar {
+        width: 40%;
+        padding:1em 4.5em;
+    }
+
+    #titulo_abonar{
+        font-size: 24px;
+    }
+
+    #por_abonar,
+    #por_pagar{
+        width: 100%;
+    }
+
+    #boton_enviar_abonar{
+        width: 50%;
+    }
+
+    #boton_cerrar_abonos{
+    margin-left: 10px;
+    font-size: 20px;
+    font-weight: bold;
+    }
+    
+
+    /* eliminar  modal */
+    .contenedor_creditos_eliminar {
+        width: 35%; /* Hacerlo más adaptable */
+        height: 25%;
+        justify-content: center;
+    }
+
+    .mensaje_creditos_eliminar{
+            font-size: 26px;
+            font-weight: bold;
+        }
+
+    .botones_eliminar {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+    }
+
+    .boton_aceptar,
+    .boton_rechazar {
+        width: auto; /* Se ajusta al contenido */
+        font-size: 14px;
+    }
+}
+
+
+
+
+
+

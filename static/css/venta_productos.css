@@ -1,0 +1,398 @@
+/* CSS básico */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+}
+
+#carro_compras {
+    width: 40px;
+    height: 40px;
+    cursor: pointer; /* Hace que el ícono sea interactivo */
+    position: absolute;
+    top: 60px;
+    right: 20px; /* Posición fija en la esquina superior derecha */
+}
+
+/* Estilo de las tarjetas de producto */
+.tarjeta {
+    height: 320px; /* Ajuste de altura para un diseño más fluido */
+    width: 300px;
+    background-color: #e6e9eb;
+    text-align: center;
+    border-radius: 20px;
+    margin-top: 40px;
+    margin-left: 20px;
+    float: left;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra para efecto elevado */
+    overflow: hidden;
+    padding: 1em;
+    transition: transform 0.3s ease-in-out; /* Animación para hover */
+}
+
+.agotado {
+    opacity: 0.5; /* Hace la tarjeta más opaca */
+    pointer-events: none; /* Desactiva la interacción con la tarjeta */
+    filter: grayscale(100%); /* Convierte la imagen en blanco y negro */
+}
+
+.agotado .btn-carrito {
+    background-color: gray;
+    cursor: not-allowed; /* Cambia el cursor a "no permitido" */
+}
+
+
+.tarjeta:hover {
+    transform: scale(1.05); /* Efecto de agrandamiento en hover */
+}
+
+figure {
+    height: 120px;
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+img {
+    width: auto;
+    height: 100%;
+    max-width: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+}
+#Producto_acabado{
+    color: #c82333;
+}
+/* Botón de añadir al carrito */
+.btn-carrito {
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: rgb(226, 43, 195);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s;
+}
+
+.btn-carrito:hover {
+    background-color: rgb(175, 7, 147);
+}
+
+/* Estilo del modal */
+.modal {
+    display: none; /* Oculto por defecto */
+    position: fixed;
+    z-index: 1000; /* Por encima de otros elementos */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4); /* Fondo semitransparente */
+}
+
+/* Contenido del modal */
+.modal-contenido {
+    background-color: #fff;
+    margin: 10% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 600px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2); /* Sombra */
+}
+
+.cerrar {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.cerrar:hover,
+.cerrar:focus {
+    color: black;
+}
+
+/* Lista de productos en el carrito */
+#listaCarrito {
+    list-style-type: none;
+    padding: 0;
+    margin: 20px 0;
+}
+
+#listaCarrito li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid #ddd;
+    font-size: 16px;
+}
+
+/* Botones para ajustar la cantidad de productos */
+.btn-ajustar {
+    padding: 5px 10px;
+    background-color: #3dc408;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+}
+
+.btn-ajustar:hover {
+    background-color: #068b06;
+}
+
+/* Botón de eliminar producto */
+.btn-eliminar {
+    padding: 5px 10px;
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+}
+
+.btn-eliminar:hover {
+    background-color: #c82333;
+}
+
+/* Estilo del total en el carrito */
+#total {
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 20px;
+}
+#datos_cliente{
+    margin-top: 20px;
+    font-weight: bold;
+}
+
+/* Estilos para el formulario dentro del modal */
+#formularioCliente {
+    margin-top: 20px;
+    text-align: left;
+}
+
+#formularioCliente label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+#formularioCliente input,select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-size: 16px;
+}
+
+/* Botón de vender */
+#formularioCliente button {
+    width: 100%;
+    padding: 12px;
+    background-color:  rgb(226, 43, 195);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background-color 0.3s;
+}
+
+#formularioCliente button:hover {
+    background-color:  rgb(175, 7, 147);
+}
+
+/* Estilo responsivo */
+@media (max-width: 600px) {
+    .modal-contenido {
+        width: 95%;
+        margin: 20% auto;
+        padding: 15px;
+    }
+
+    #formularioCliente button {
+        font-size: 16px;
+    }
+
+    #listaCarrito li {
+        font-size: 14px;
+    }
+
+    .tarjeta {
+        width: 95%; /* Tarjetas ajustables en pantallas pequeñas */
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+
+
+/* ---------------------------------------------------ALERTAS--------------------------------------------------------*/
+
+.modal_realizada{
+    display: none;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    z-index: 1000;
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo oscuro semi-transparente */
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.6s;
+}
+.modal_realizada.mostrar_modal{
+    display: flex;
+    opacity: 1;
+    pointer-events: all;
+}
+
+.contenedor_venta_realizada{
+    background-color: #fff;
+    width: 300px;
+    height: auto;
+    text-align: center;
+    border-radius: 10px;
+    margin-bottom: 5px;
+    padding: 8px;
+    font-size: 20px;
+}
+
+.boton_aceptar{
+    padding: 8px;
+    width: 90px;
+    
+    background-color: #08C93C;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    margin-top: 3px;
+    cursor: pointer;
+    color: #000;
+}
+
+
+
+/* --------------------------------modal incorrecto------------------------------------- */
+
+
+
+.modal_no_realizado{
+    display: none;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    z-index: 1000;
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo oscuro semi-transparente */
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.6s;
+}
+.modal_no_realizado.mostrar_modal_no_realizado{
+    display: flex;
+    opacity: 1;
+    pointer-events: all;
+}
+
+.contenedor_no_realizado{
+    background-color: #fff;
+    width: 300px;
+    height: auto;
+    text-align: center;
+    border-radius: 10px;
+    margin-bottom: 5px;
+    padding: 8px;
+}
+
+.boton_no_realizado{
+    padding: 8px;
+    width: 90px;
+    background-color: #c92d2d;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    margin-top: 3px;
+    cursor: pointer;
+    color: #000;
+}
+
+
+/* -----------------------------buscar ventas----------------------------------- */
+
+.contenedor__buscar_ventas {
+    display: flex;
+    justify-content: center; /* Centra horizontalmente */
+    align-items: center; /* Alinea los elementos verticalmente */
+}
+
+.buscar_ventas{
+    display: flex;
+    align-items: center;
+}
+
+#nombre_venta {
+    height: 40px;
+    border: none;
+    background-color: #bcbcbca3;
+    font-weight: bold;
+    border-radius: 10px 0px 0px 10px;
+    width: 190px;
+    font-size: 15px;
+    text-align: left; /* Asegura que el texto se alinee a la izquierda */
+    direction: ltr; /* Fuerza la dirección de izquierda a derecha */
+    padding-left: 10px; /* Espacio entre el texto y el borde izquierdo */
+}
+
+
+#boton_buscar_venta{
+    white-space: nowrap;
+    padding: 10.5px 16px;
+    background-color: rgb(226, 43, 195);
+    color: #000;
+    border: none;
+    border-radius: 0px 10px 10px 0px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+input::placeholder {
+    color: #000000; /* Color del placeholder */
+}
+
+input:focus {
+    outline: none; /* Elimina el borde cuando está enfocado */
+}

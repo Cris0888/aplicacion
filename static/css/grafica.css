@@ -1,0 +1,31 @@
+#grafica_de_producto_mas_vendido{
+    width: 33%;
+    height: 500px;
+    border: none;
+    
+}
+
+#grafica_de_producto_mas_vendido_semana{
+    width: 33%;
+    height: 500px;
+    border: none;
+    
+}
+
+#grafica_de_producto_mas_vendido_mes{
+    width: 33%;
+    height: 500px;
+    border: none;
+    
+}
+
+
+@media screen and (max-width: 768px) {
+    #grafica_de_producto_mas_vendido,
+    #grafica_de_producto_mas_vendido_semana,
+    #grafica_de_producto_mas_vendido_mes {
+        width: 100%;
+        float: none;
+        margin-bottom: 20px;
+    }
+}

@@ -1,0 +1,502 @@
+* {
+    box-sizing: border-box;
+}
+
+
+a {
+    color: black;
+    font-size: 20px;
+}
+
+.boton_crear {
+    color: black;
+    background-color: rgb(226, 43, 195);
+    height: 30px;
+    width: 200px; /* Un poco más grande para mejor visualización */
+    border-radius: 10px;
+    font-weight: bold;
+    font-size: 17px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    margin: 20px auto; /* 🔥 Centramos automáticamente */
+}
+
+.modal_metodo {
+    display: none; /* Inicialmente oculto */
+    justify-content: center;
+    align-items: center;
+    position: fixed; /* 🔥 Fijamos el modal en la pantalla */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo semi-transparente */
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease-in-out;
+    z-index: 9999; /* Asegura que esté por encima de todo */
+}
+
+.modal_metodo.mostrar_modal_crear {
+    display: flex;
+    opacity: 1;
+    pointer-events: all;
+}
+
+.modal_contenedor_crear {
+    position: relative;
+    width: 90%; /* Ancho del modal en porcentaje */
+    max-width: 300px; /* Ancho máximo */
+    height: auto;
+    background-color: #ffffff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    padding:  1.5em 2.3em;
+    text-align: center;
+}
+
+#titulo_crear{
+    font-weight: bold;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+#label_crear {
+    position: relative;
+    right: 58px;
+    bottom: 3px;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+input {
+    border: none;
+    margin: 10px 0;
+    border-radius: 10px;
+    width: 100%;
+    padding: 0.3em;
+    box-sizing: border-box;
+    background-color: #bcbcbca3;
+}
+
+.boton_enviar_crear {
+    display: block;
+    margin: 1em auto 0;
+    height: 35px;
+    width: 100px;
+    border-radius: 22px;
+    background-color: rgb(255, 0, 217);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 6px 20px rgba(0, 0, 0, 0.1);
+    font-weight: bold;
+    font-size: 17px;
+    border: none;
+    color: #000000;
+}
+
+#boton_enviar_crear:hover {
+    background-color: rgb(200, 0, 180);
+}
+
+/* 🔥 Mejoramos el botón de cerrar */
+.boton_cerrar {
+    position: absolute;
+    top: 5px;
+    right: 20px;
+    cursor: pointer;
+    font-size: 20px;
+    background: none;
+    border: none;
+    color: #000000;
+    font-weight: bold;
+}
+
+
+
+.bton {
+    background-color: #fff;
+    border: none;
+    color: #000
+}
+
+.bton {
+    background-color: #fff;
+    border: none;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/*------------------------------------------- modal eliminar---------------------------------------------------------------------------------- */
+
+.modal_eliminar_metodos {
+    display: none; /* Oculto por defecto */
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    z-index: 1000;
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo oscuro semi-transparente */
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.6s ease-in-out;
+}
+
+.modal_eliminar_metodos.mostrar_eliminar_metodos {
+    display: flex; /* Muestra el modal */
+    opacity: 1; /* Opacidad completa */
+    pointer-events: all; /* Permite la interacción */
+}
+
+.contenedor_eliminar_metodos {
+    background-color: #fff;
+    max-width: 90%; /* Se adapta mejor a diferentes pantallas */
+    width: 300px; /* Ancho base */
+    min-height: 150px; /* Altura mínima para evitar que se vea muy pequeño */
+    text-align: center;
+    border-radius: 10px;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.mensaje_eliminar_metodos {
+    text-align: center;
+    font-weight: bold;
+}
+
+.botones_eliminar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    width: 100%;
+    margin-top: 15px;
+}
+
+/* Estilos generales de los botones */
+.boton_aceptar_eliminar_metodos,
+.boton_rechazar_eliminar_metodos {
+    padding: 10px;
+    width: 120px;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    border-radius: 8px;
+    cursor: pointer;
+    border: none;
+    transition: 0.3s ease-in-out;
+}
+
+/* Botón Aceptar */
+.boton_aceptar_eliminar_metodos {
+    background-color: #08C93C;
+    color: rgb(0, 0, 0);
+}
+
+.boton_aceptar_eliminar_metodos:hover {
+    background-color: #0a8d2b;
+}
+
+/* Botón Cancelar */
+.boton_rechazar_eliminar_metodos {
+    background-color: #c92d2d;
+    color: rgb(0, 0, 0);
+}
+
+.boton_rechazar_eliminar_metodos:hover {
+    background-color: #a71f1f;
+}
+
+.abrir_modal_eliminar_metodo {
+    background-color: #fff;
+    border: none;
+    color: #000;
+}
+
+
+/* --------------alerta incorrecta------------------------------------ */
+
+.modal_agregar_incorrecto {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    z-index: 10000;
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo oscuro semi-transparente */
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.6s ease-in-out;
+}
+
+.modal_agregar_incorrecto.mostrar_metodo_incorrecto {
+    display: flex;
+    opacity: 1;
+    pointer-events: all;
+}
+.contenedor_agregar_incorrecto {
+    background-color: #fff;
+    width: 300px;
+    height: auto; /* Altura automática para ajustarse al contenido */
+    text-align: center;
+    border-radius: 10px;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+figure {
+    width: 100px; /* Ajustado al tamaño de la imagen */
+    height: auto; 
+    margin-bottom: 10px;
+}
+
+figure img {
+    width: 100px;
+    height: 100px;
+}
+.boton_agregar_incorrecto {
+    padding: 5px;
+    width: 90px;
+    background-color: #c92d2d;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    margin-top: 3px;
+    cursor: pointer;
+    color: #000;
+}
+
+
+
+/* --------------alerta correcto------------------------------------ */
+
+.modal_agregar_correcto{
+    display: none;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    z-index: 1000;
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo oscuro semi-transparente */
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.6s ease-in-out;
+}
+
+.modal_agregar_correcto.mostrar_metodo_correcto {
+    display: flex;
+    opacity: 1;
+    pointer-events: all;
+}
+
+.contenedor_agregar_correcto {
+    background-color: #fff;
+    width: 300px;
+    height: auto; /* Altura automática para ajustarse al contenido */
+    text-align: center;
+    border-radius: 10px;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+figure {
+    width: 100px; /* Ajustado al tamaño de la imagen */
+    height: auto; 
+    margin-bottom: 10px;
+}
+
+figure img {
+    width: 100px;
+    height: 100px;
+}
+
+.boton_agregar_correcto {
+    padding: 5px;
+    width: 90px;
+    background-color: #08C93C;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    margin-top: 3px;
+    cursor: pointer;
+    color: #000;
+}
+
+.table-responsive {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.table th, .table td {
+    padding: 8px;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+
+/* ---------------------- RESPONSIVE ---------------------- */
+
+/* 📱 Para móviles (menos de 768px) */
+@media (max-width: 768px) {
+    .table thead {
+        display: none; /* Oculta el encabezado en pantallas pequeñas */
+    }
+
+    .table tr {
+        display: block; /* Cada fila se convierte en un bloque */
+        margin-bottom: 25px; /* Espacio entre filas */
+        border: 1px solid #ddd;
+        padding: 10px;
+    }
+
+    .table td {
+        display: flex; /* Usa flexbox para alinear datos */
+        justify-content: flex-start; /* Mantiene los datos alineados a la izquierda */
+        align-items: center;
+        text-align: left;
+        padding-left: 10px;
+        position: relative;
+    }
+
+    .table td::before {
+        content: attr(data-label); /* Agrega el título del encabezado */
+        font-weight: bold; /* Negrita para destacar */
+        margin-right: 30px; /* Espacio entre el título y el dato */
+        color: #333; /* Color oscuro para mejor visibilidad */
+    }
+}
+
+
+/* 📱 Para dispositivos menores a 480px */
+@media (max-width: 480px) {
+
+    .modal_contenedor_crear {
+        width: 90%; /* Que ocupe casi todo el ancho en móviles */
+        height: auto; /* Altura adaptable */
+        padding: 2em; /* Menos espacio interno para que no se vea apretado */
+    }
+
+    #titulo_crear {
+        font-size: 24px; /* Letra más pequeña para mejor visualización */
+        font-weight: bold;
+    }
+
+
+    input {
+        font-size: 14px; /* Reducimos el tamaño del texto en el input */
+    }
+
+    #boton_enviar_crear {
+        width: 80px; /* Botón más pequeño */
+        font-size: 15px;
+        height: 30px;
+    }
+
+    .boton_cerrar {
+        left: auto;
+        right: 20px; /* Ajustamos para que el botón de cerrar no se desacomode */
+    }
+
+    .boton_crear {
+        width: 90%; /* 🔥 Se ajusta al ancho del dispositivo */
+        max-width: 180px; /* No más grande de 180px */
+        height: 30px; /* Un poco más alto para mejor accesibilidad */
+        font-size: 16px; /* Texto más grande en móviles */
+    }
+
+    .contenedor_eliminar_metodos {
+        width: 70%; /* Hacerlo más adaptable */
+        padding: 10px;
+        height: auto;
+        justify-content: center;
+    }
+
+    #mensaje_eliminar_metodos {
+        font-size: 26px;
+        font-weight: bold;
+    }
+
+    .botones_eliminar {
+        flex-direction: column; /* Apila los botones */
+        align-items: flex-start; /* Alinea los botones a la izquierda */
+        gap: 10px;
+    }
+
+    .boton_aceptar_eliminar_metodos,
+    .boton_rechazar_eliminar_metodos {
+        width: auto; /* Se ajusta al contenido */
+        font-size: 14px;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+
+
+    .contenedor_eliminar_metodos {
+        width: 35%; /* Hacerlo más adaptable */
+        height: 25%;
+        padding: 10px;
+        height: auto;
+        justify-content: center;
+    }
+
+    #mensaje_eliminar_metodos {
+        font-size: 26px;
+        font-weight: bold;
+    }
+
+    .botones_eliminar {
+        flex-direction: column; /* Apila los botones */
+        align-items: flex-start; /* Alinea los botones a la izquierda */
+        gap: 10px;
+    }
+
+    .boton_aceptar_eliminar_metodos,
+    .boton_rechazar_eliminar_metodos {
+        width: auto; /* Se ajusta al contenido */
+        font-size: 14px;
+    }
+
+
+}

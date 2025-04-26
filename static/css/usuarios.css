@@ -1,0 +1,771 @@
+* {
+    box-sizing: border-box;
+}
+
+
+a {
+    color: black;
+    font-size: 20px;
+}
+
+.boton_crear_usuario {
+    position: relative; /* Fija el botón en relación con la pantalla */
+    top: 50%; /* Lo coloca en la mitad de la pantalla verticalmente */
+    left: 50%; /* Lo coloca en la mitad de la pantalla horizontalmente */
+    transform: translate(-50%, -50%); /* Lo centra correctamente */
+    width: 150px;
+    height: 30px;
+    margin-top: 20px;
+    background-color: rgb(226, 43, 195);
+    border-radius: 10px;
+    color: #000;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 16px; /* Ajusta el tamaño del texto */
+    text-align: center;
+}
+    
+
+.modal_crear_usuarios {
+    z-index: 1000; /* Un valor alto para que siempre esté sobre la tabla */
+    display: none;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo oscuro semi-transparente */
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.6s;
+}
+
+.modal_crear_usuarios.mostrar_modal_crear_usuario {
+    display: flex;
+    opacity: 1;
+    pointer-events: all;
+}
+
+.modal_contenedor_crear_usuarios {
+    z-index: 1100; /* Asegura que el contenido esté visible */
+    position: relative;
+    width: 25%;
+    height: 65%;
+    border-radius: 10px;
+    padding: 3.5em 2.5em;
+    background-color: #ffffff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 6px 20px rgba(0, 0, 0, 0.1); /* Efecto de sombra */
+}
+
+#titulo_crear_usuarios{
+    position: relative;
+    bottom: 20px;
+    text-align: center;
+    font-weight: bold;
+}
+
+#label_crear {
+    position: relative;
+    left: 20px;
+    
+    font-weight: bold;
+    font-size: 16px;
+}
+
+input {
+    border: none;
+    margin: 10px 0;
+    border-radius: 10px;
+    width: 100%;
+    padding: 0.3em;
+    box-sizing: border-box;
+    background-color: #bcbcbca3;
+}
+
+select{
+    border: none;
+    margin: 10px 0;
+    border-radius: 10px;
+    width: 100%;
+    padding: 0.3em;
+    box-sizing: border-box;
+    background-color: #bcbcbca3;
+}
+
+#boton_enviar_crear_usuario {
+    display: block;
+    margin: 1.2em auto 0;
+    height: 35px;
+    width: 100px;
+    border-radius: 22px;
+    background-color: rgb(255, 0, 217);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 6px 20px rgba(0, 0, 0, 0.1);
+    font-weight: bold;
+    font-size: 17px;
+    border: none;
+    color: #000;
+}
+
+.boton_cerrar_crear_usuarios{
+    position: absolute;
+    top: 1px;
+    left: 300px;
+    font-size: 20px;
+    font-weight: bold;
+    color: #333;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+
+.bton{
+background-color: #fff;
+border: none;
+color: #000;
+}
+
+
+/* -----------------------------------------alerta correta------------------------------------------------------ */
+.modal_agregar_correcto{
+    display: none;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    z-index: 1000;
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo oscuro semi-transparente */
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.6s ease-in-out;
+}
+
+.modal_agregar_correcto.oculto_correcto {
+        display: flex;
+        opacity: 1;
+        pointer-events: all;
+    }
+
+#mensaje_agregar_correcto{
+    font-size: 24px;
+    font-weight: bold;
+}
+
+
+
+.contenedor_agregar_correcto {
+    background-color: #fff;
+    width: 300px;
+    height: auto; /* Altura automática para ajustarse al contenido */
+    text-align: center;
+    border-radius: 10px;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+figure {
+    width: 100px; /* Ajustado al tamaño de la imagen */
+    height: auto; 
+    margin-bottom: 10px;
+}
+
+figure img {
+    width: 100px;
+    height: 100px;
+}
+
+.boton_agregar_correcto {
+    padding: 5px;
+    width: 90px;
+    background-color: #08C93C;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    margin-top: 3px;
+    cursor: pointer;
+    color: #000;
+}
+
+
+/*--------------------------------- MODAL INCORRECTO---------------------------------------------------- */
+
+
+
+
+
+.modal_agregar_incorrecto{
+    display: none;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    z-index: 1000;
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo oscuro semi-transparente */
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.6s ease-in-out;
+}
+
+.modal_agregar_incorrecto.oculto_incorrecto {
+        display: flex;
+        opacity: 1;
+        pointer-events: all;
+    }
+
+
+
+.contenedor_agregar_incorrecto {
+    background-color: #fff;
+    width: 300px;
+    height: auto; /* Altura automática para ajustarse al contenido */
+    text-align: center;
+    border-radius: 10px;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+figure {
+    width: 100px; /* Ajustado al tamaño de la imagen */
+    height: auto; 
+    margin-bottom: 10px;
+}
+
+figure img {
+    width: 100px;
+    height: 100px;
+}
+
+.boton_agregar_incorrecto {
+    padding: 5px;
+    width: 90px;
+    background-color: #c92d2d;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    margin-top: 3px;
+    cursor: pointer; 
+    color: #000;
+}
+
+#mensaje_agregar_incorrecto{
+    font-size: 24px;
+    font-weight: bold;
+}
+
+/* --------------------------ACTUALIZAR USUARIOS--------------------------------------------------- */
+
+/* 🔹 Asegurar que el modal está por encima pero no desplaza la tabla */
+.modal_actualizar_usuario {
+    display: none; /* Se oculta por defecto */
+    justify-content: center;
+    align-items: center;
+    position: fixed; /* No afecta el flujo del documento */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo oscuro */
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.6s ease-in-out;
+    z-index: 1000; /* Asegura que esté encima sin bloquear la tabla */
+}
+
+/* 🔹 Cuando el modal está activo */
+.modal_actualizar_usuario.mostrar_modal_actualizar_usuario {
+    display: flex;
+    opacity: 1;
+    pointer-events: all;
+}
+
+/* 🔹 Contenedor del modal */
+.contenedor_actualizar_usuario {
+    position: relative;
+    width: 25%;
+    max-width: 400px; /* Controla el ancho en pantallas grandes */
+    height: auto;
+    min-height: 200px;
+    border-radius: 10px;
+    padding: 1.5em;
+    background-color: #ffffff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 6px 20px rgba(0, 0, 0, 0.1);
+    z-index: 1100; /* Asegura que el contenido del modal esté visible */
+}
+
+/* 🔹 Asegurar que la tabla NO sea bloqueada */
+.tabla_usuarios {
+    position: relative;
+    z-index: 500; /* Menor que el modal para que se mantenga detrás */
+}
+
+#titulo_actualizar_usuario{
+    position: relative;
+    bottom: 20px;
+    text-align: center;
+    font-weight: bold;
+}
+
+
+
+
+label{
+    position: relative;
+    left: 20px;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+#input_actualizar{
+    border: none;
+    margin: 10px 0;
+    border-radius: 10px;
+    width: 100%;
+    padding: 0.3em;
+    box-sizing: border-box;
+    background-color: #bcbcbca3;
+}
+
+
+
+
+#boton_enviar_editar {
+    display: block;
+    margin: 1.2em auto 0;
+    height: 35px;
+    width: 120px;
+    border-radius: 22px;
+    background-color: rgb(255, 0, 217);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 6px 20px rgba(0, 0, 0, 0.1);
+    font-weight: bold;
+    font-size: 17px;
+    border: none;
+    color: #000;
+}
+
+#boton_cerrar_actualizar_usuario{
+    position: relative;
+    bottom: 25px;
+    left: 280px;
+    cursor: pointer;
+    font-size: 22px; /* Ajusta el tamaño */
+    font-weight: bold;
+}
+
+
+.abrir_modal_actualizar_usuario{
+background-color: #fff;
+border: none;
+color: #000;
+
+}
+
+/* ---------------------------------------------------modal eliminar usuarios --------------------------------------------------------------------------------- */
+
+
+
+
+
+.modal_eliminar_usuario {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    z-index: 1000;
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo oscuro semi-transparente */
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.6s ease-in-out;
+}
+
+.modal_eliminar_usuario.mostrar_eliminar_usuario {
+    display: flex;
+    opacity: 1;
+    pointer-events: all;
+}
+
+.contenedor_eliminar_usuario{
+    background-color: #fff;
+    width: 300px;
+    height: 35%;/* Altura automática para ajustarse al contenido */
+    text-align: center;
+    border-radius: 10px;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+
+
+
+#mensaje_eliminar_usuario{
+    text-align: center;
+    font-weight: bold;
+    font-size: 24px;
+}
+
+
+.botones_eliminar {
+    display: flex;
+    justify-content: center; /* Centra los botones */
+    align-items: center;
+    gap: 15px; /* Espaciado entre botones */
+    width: 100%;
+    margin-top: 15px;
+}
+
+/* Estilos generales de los botones */
+.boton_aceptar_eliminar_usuario,
+.boton_rechazar_eliminar_usuario {
+    padding: 10px;
+    width: 120px; /* Se agrandan un poco para mejor visualización */
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    border-radius: 8px;
+    cursor: pointer;
+    border: none;
+    transition: 0.3s ease-in-out;
+}
+
+/* Botón Aceptar */
+.boton_aceptar_eliminar_usuario{
+    background-color: #08C93C;
+    color: rgb(0, 0, 0);
+}
+
+.boton_aceptar_eliminar_usuario:hover {
+    background-color: #06a82e;
+}
+
+/* Botón Cancelar */
+.boton_rechazar_eliminar_usuario  {
+    background-color: #c92d2d;
+    color: rgb(0, 0, 0);
+}
+
+.boton_rechazar_eliminar_usuario:hover {
+    background-color: #a71f1f;
+}
+
+.abrir_modal_eliminar_usuario{
+    background-color: #fff;
+    border: none;
+    color: #000;
+}
+
+
+
+/* tabla--------------------------------------------------------------------------- */
+.table-responsive {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.table {
+    position: relative;
+    width: 100%;
+    border-collapse: collapse;
+    z-index: 100; /* Menor que el modal */
+}
+
+.table th, .table td {
+    padding: 8px;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+
+/* ---------------------- RESPONSIVE ---------------------- */
+
+/* 📱 Para móviles (menos de 768px) */
+@media (max-width: 768px) {
+
+    .modal_contenedor_crear_usuarios {
+        width: 80%; /* Ajuste de ancho en pantallas medianas */
+        height: auto; /* Ajusta la altura al contenido */
+        padding: 2.5em; /* Reduce el padding */
+    }
+
+    #titulo_crear_usuarios {
+        font-size: 24px; /* Reduce el tamaño del título */
+        font-weight: bold;
+    }
+
+    #label_crear {
+        left: 0; /* Centra las etiquetas en móviles */
+        font-size: 14px;
+    }
+
+    input, select {
+        max-width: 100%; /* Se asegura que no se desborde */
+    }
+
+    #boton_enviar_crear_usuario {
+        width: 60%; /* Ajuste del botón en pantallas medianas */
+    }
+
+    .boton_cerrar_crear_usuarios {
+        left: auto;
+        right: 10px; /* Mueve el botón de cerrar a la derecha */
+        top: 10px;
+        font-size: 20px;
+    }
+
+    .contenedor_actualizar_usuario {
+        width: 80%; /* Aumenta el ancho en pantallas pequeñas */
+        height: auto; /* Permite que la altura se ajuste automáticamente */
+        padding: 1.5em; /* Ajusta el espacio interno */
+    }
+
+    #titulo_actualizar_usuario {
+        font-size: 18px;
+        bottom: 10px;
+    }
+
+    #label_antigua, #label_nueva {
+        left: 0px; /* Centra los labels en móviles */
+        font-size: 14px;
+    }
+
+    #input_actualizar {
+        width: 100%; /* Se asegura de que el input no se desborde */
+        max-width: 280px; /* Limita el ancho en pantallas pequeñas */
+        padding: 0.5em;
+    }
+
+    #boton_enviar_editar {
+        width: 120px;
+        font-size: 15px;
+        color: #000;
+    }
+
+    #boton_cerrar_actualizar_usuario {
+        left: auto; /* Evita que el botón de cerrar se salga en móviles */
+        right: 10px;
+        top: 10px;
+        position: absolute; /* Lo coloca en la esquina superior derecha */
+        font-size: 20px;
+    }
+
+    .table thead {
+        display: none; /* Oculta el encabezado en pantallas pequeñas */
+    }
+
+    .table tr {
+        display: block; /* Cada fila se convierte en un bloque */
+        margin-bottom: 25px; /* Espacio entre filas */
+        border: 1px solid #ddd;
+        padding: 10px;
+    }
+
+    .table td {
+        display: flex; /* Usa flexbox para alinear datos */
+        justify-content: flex-start; /* Mantiene los datos alineados a la izquierda */
+        align-items: center;
+        text-align: left;
+        padding-left: 10px;
+        position: relative;
+    }
+
+    .table td::before {
+        content: attr(data-label); /* Agrega el título del encabezado */
+        font-weight: bold; /* Negrita para destacar */
+        margin-right: 30px; /* Espacio entre el título y el dato */
+        color: #333; /* Color oscuro para mejor visibilidad */
+    }
+    .boton_crear_usuario {
+        padding: 10px 20px;
+    }
+    
+}
+
+
+@media (max-width: 480px) {
+    .modal_contenedor_crear_usuarios {
+        width: 90%; /* Más estrecho en pantallas pequeñas */
+        padding: 2em;
+    }
+
+    #titulo_crear_usuarios {
+        font-size: 24px;
+        font-weight: bold;
+        margin-top: 20px;
+    }
+
+    input, select {
+        font-size: 14px;
+    }
+
+    #boton_enviar_crear_usuario {
+        width: 40%;
+    }
+
+    .boton_cerrar_crear_usuarios {
+        position: absolute; /* Lo fija dentro del modal */
+        bottom: -3px; /* Lo coloca en la parte superior */
+        right: 15px; /* Lo coloca en la esquina derecha */
+        font-size: 22px; /* Ajusta el tamaño */
+        font-weight: bold;
+        color: #333; /* Color oscuro para visibilidad */
+        background: none;
+        border: none;
+        cursor: pointer;
+    }
+
+
+    .contenedor_actualizar_usuario {
+        width: 90%;
+        padding: 1em;
+    }
+
+    #titulo_actualizar_usuario {
+        font-size: 24px;
+        margin-top: 40px;
+    }
+
+
+    #boton_enviar_editar {
+        width: 50%;
+        color: #000;
+    }
+
+    .boton_crear_usuario {
+        width: 100%; /* Que ocupe todo el ancho disponible */
+        max-width: 120px; /* Evita que sea demasiado grande */
+        padding: 3px 10px; /* Ajusta el padding */
+        font-size: 15px; /* Reduce el tamaño del texto */
+    }
+
+    #boton_cerrar_actualizar_usuario {
+        position: absolute; /* Lo fija dentro del modal */
+        bottom: -3px; /* Lo coloca en la parte superior */
+        right: 15px; /* Lo coloca en la esquina derecha */
+        font-size: 22px; /* Ajusta el tamaño */
+        font-weight: bold;
+        color: #333; /* Color oscuro para visibilidad */
+        background: none;
+        border: none;
+        cursor: pointer;
+    }
+    
+
+
+    /* modal eliminar */
+    .contenedor_eliminar_usuario {
+        width: 80%; /* Hacerlo más adaptable */
+        padding: 10px;
+        height: auto;
+        justify-content: center;
+    }
+
+    #mensaje_eliminar_usuario {
+        font-size: 26px;
+        font-weight: bold;
+    }
+
+    .botones_eliminar {
+        flex-direction: column; /* Apila los botones */
+        align-items: flex-start; /* Alinea los botones a la izquierda */
+        gap: 10px;
+    }
+
+    .boton_aceptar_eliminar_usuario,
+    .boton_rechazar_eliminar_usuario {
+        width: auto; /* Se ajusta al contenido */
+        font-size: 14px;
+    }
+
+
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+    .contenedor_actualizar_usuario {
+        width: 40%;
+        padding: 1em 2.5em;
+    }
+
+    #titulo_actualizar_usuario {
+        font-size: 24px;
+        margin-top: 40px;
+    }
+
+
+    #boton_enviar_editar {
+        width: 50%;
+    }
+
+    .boton_crear_usuario {
+        width: 100%; /* Que ocupe todo el ancho disponible */
+        max-width: 120px; /* Evita que sea demasiado grande */
+        padding: 3px 10px; /* Ajusta el padding */
+        font-size: 15px; /* Reduce el tamaño del texto */
+    }
+
+    #boton_cerrar_actualizar_usuario {
+        position: absolute; /* Lo fija dentro del modal */
+        bottom: 240px; /* Lo coloca en la parte superior */
+        font-size: 22px; /* Ajusta el tamaño */
+        font-weight: bold;
+        color: #333; /* Color oscuro para visibilidad */
+        background: none;
+        border: none;
+        cursor: pointer;
+    }
+
+    .contenedor_eliminar_usuario {
+        width: 35%; /* Hacerlo más adaptable */
+        height: 25%;
+        padding: 10px;
+        height: auto;
+        justify-content: center;
+    }
+
+    #mensaje_eliminar_usuario {
+        font-size: 26px;
+        font-weight: bold;
+    }
+
+    .botones_eliminar {
+        flex-direction: column; /* Apila los botones */
+        align-items: flex-start; /* Alinea los botones a la izquierda */
+        gap: 10px;
+    }
+
+    .boton_aceptar_eliminar_usuario,
+    .boton_rechazar_eliminar_usuario {
+        width: auto; /* Se ajusta al contenido */
+        font-size: 14px;
+    }
+
+
+
+
+}

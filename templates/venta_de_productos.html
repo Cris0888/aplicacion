@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/menu_amburguesa.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/venta_productos.css') }}">
+    
+    <title>Venta de Productos</title>
+</head>
+<main>
+    {% include '/cabecera.html' %}
+
+    <div class="contenedor__buscar_ventas">
+        <form id="formulario_buscar_productos" class="buscar_ventas">
+            <input type="search" id="nombre_venta" oninput="buscarProducto()" placeholder="Nombre del producto" required>
+            <button type="button" id="boton_buscar_venta">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                    <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>
+                </svg>
+            </button>
+        </form>
+    </div>
+    
+    <img src="/static/img/carrito.svg" alt="Carrito de compras" id="carro_compras">
+    
+    <div id="producto-encontrado">
+        {% for resultado in resultado %}
+        <div class="tarjeta {% if resultado[3] <= 0 %}agotado{% endif %}">
+            <div class="contenedor">
+                <figure>
+                    <img src="/static/img_producto/{{ resultado[5] }}" alt="Imagen del producto">
+                </figure>
+                <h2>{{ resultado[0] }}</h2>
+                <p>Precio: $ {{ "{:,.0f}".format(resultado[1]|float).replace(",", ".") }}</p>
+                <p>Categoría: {{ resultado[2] }}</p>
+                <p>Unidades: {{ resultado[3] }}</p>
+                <p hidden>ID: {{ resultado[4] }}</p>
+                <button class="btn-carrito" onclick="agregarAlCarrito('{{ resultado[0] }}', '{{ resultado[1] }}', '{{ resultado[4] }}')">Añadir al carrito</button>
+                
+                {% if resultado[3] <= 5 %}
+                    <h3 style="color: red;">¡Producto agotado!</h3>
+                {% endif %}
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+
+
+    <!-- Modal -->
+    <div id="modalCarrito" class="modal">
+        <div class="modal-contenido">
+            <span class="cerrar">&times;</span>
+            <h2>Carrito de Compras</h2>
+    
+            <!-- Lista del carrito -->
+            <ul id="listaCarrito">
+            </ul>
+            <p id="total">Total: $<span id="totalCarrito">0.00</span></p>
+
+    
+            <!-- Formulario para información del cliente -->
+            <h3 id="datos_cliente">Datos del Cliente</h3>
+            <form id="formularioCliente">
+                
+                <label for="identificacion_cliente">Cédula:</label>
+                <input type="text" id="identificacion_cliente" name="identificacion_cliente" oninput="buscarCliente()">
+                
+                <label for="nombreCliente">Nombre:</label>
+                <input type="text" id="nombreCliente" name="nombreCliente">
+
+                <label for="correoCliente">Correo Electrónico:</label>
+                <input type="text" id="correoCliente" name="correoCliente">
+                
+                <label for="telefonoCliente">Teléfono:</label>
+                <input type="text" id="telefonoCliente" name="telefonoCliente">
+                
+                <label for="metodo_de_pago">metodo de pago:</label>
+                <select name="metodos_pago" id="metodos" required>
+                    <optgroup label="selecione el metodo de pago">
+                    {%for metodos in metodos%}
+                        <option value="{{metodos[0]}}">{{metodos[2]}}</option>
+                    </optgroup>
+                    {%endfor%}
+                </select>
+                
+                <button type="button" onclick="vender()">Vender</button>
+            </form>
+        </div>
+    </div>
+
+
+    <div class="modal_realizada">
+            <div class="contenedor_venta_realizada">
+                <h3 id="mensaje_aceptado"></h3>
+                <figure>
+                    <img src="/static/img/correcto.jpg" alt="">
+                </figure>
+                <button class="boton_aceptar">Aceptar</button>
+            </div>
+    </div>
+
+
+
+    <div class="modal_no_realizado">
+        <div class="contenedor_no_realizado">
+            <h3 id="mensaje_no_realizado"></h3>
+            <figure>
+                <img src="/static/img/incorrecto.jpg" alt="">
+            </figure>
+            <button class="boton_no_realizado">Aceptar</button>
+        </div>
+    </div>
+
+
+
+    
+    {% include '/pie.html' %}
+
+
+    <script src="{{ url_for('static', filename='js/venta_productos.js') }}"></script>
+</main>
+</html>

@@ -1,0 +1,125 @@
+* {
+    font-size: 1rem;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    background-color: #F4B8BB;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+}
+
+.datos_incorrectos {
+    color: red;
+    font-weight: bold;
+    font-size: 18px;
+    display: none;
+}
+
+
+#caja_padre {
+    background-color: rgb(255, 255, 255);
+    height: auto;
+    width: 400px;
+    padding: 20px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+img {
+    height: 150px;
+    width: 150px;
+    border-radius: 50%;
+    margin-bottom: 20px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+input {
+    padding: 10px;
+    margin: 10px 0;
+    width: 80%;
+    text-align: center;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button {
+    padding: 8px 20px;
+    margin: 20px 0 0 0;
+    width: auto;
+    text-align: center;
+    background-color: #d38d8f;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #be5968;
+}
+
+
+
+input:focus {
+    outline: none; /* Elimina el borde cuando el input está enfocado */
+}
+
+/* Media Queries */
+/* Media Queries */
+
+/* Teléfonos pequeños (hasta 576px) */
+@media (max-width: 576px) {
+    #caja_padre {
+        width: 100%;
+        max-width: 350px;
+        max-height: 1200px;
+        padding: 15px;
+    }
+    img {
+        height: 120px;
+        width: 120px;
+    }
+    input {
+        width: 100%;
+    }
+}
+
+/* Teléfonos grandes y tablets pequeñas (hasta 768px) */
+@media (max-width: 768px) {
+    #caja_padre {
+        width: 85%;
+    }
+    img {
+        height: 130px;
+        width: 130px;
+    }
+}
+
+/* Tablets y pantallas medianas (hasta 992px) */
+@media (max-width: 992px) {
+    #caja_padre {
+        width: 500px;
+    }
+}
+
+/* Computadoras portátiles y pantallas más grandes (hasta 1200px) */
+@media (max-width: 1200px) {
+    #caja_padre {
+        width: 500px;
+    }
+}
